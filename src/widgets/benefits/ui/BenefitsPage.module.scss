@@ -1,64 +1,408 @@
+
 @use '../../../app/styles/variables' as *;
 
 .wrapper {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  min-height: 65vh;
-  padding: 80px 24px;
+  min-height: calc(100vh - 80px);
+  padding: 32px 24px;
+  overflow: hidden;
   background: $color-bg-primary;
-  text-align: center;
+  isolation: isolate;
+}
+
+.backgroundGlow {
+  position: absolute;
+  z-index: -1;
+  top: -170px;
+  left: 50%;
+  width: 850px;
+  height: 600px;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse,
+    rgba(184, 134, 69, 0.14),
+    transparent 70%
+  );
+  pointer-events: none;
+  animation: glow 8s ease-in-out infinite alternate;
+}
+
+.gridPattern {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  opacity: 0.1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(229, 189, 112, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(229, 189, 112, 0.08) 1px, transparent 1px);
+  background-size: 70px 70px;
+  mask-image: linear-gradient(to bottom, black, transparent 90%);
 }
 
 .content {
   width: 100%;
-  max-width: 680px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.heading {
+  max-width: 760px;
+  margin: 0 auto 27px;
+  text-align: center;
+  animation: fadeUp 0.7s ease both;
 }
 
 .label {
-  display: inline-block;
-  margin-bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 12px;
   color: $color-gold-champagne;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.24em;
 }
 
-.content h1 {
-  margin: 0 0 24px;
+.labelDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: $color-gold-highlight;
+  box-shadow: 0 0 10px rgba(245, 213, 141, 0.7);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.heading h1 {
+  margin: 0;
   color: $color-text-primary;
-  font-size: clamp(32px, 5vw, 48px);
+  font-size: clamp(38px, 4vw, 52px);
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+
+  span {
+    color: $color-gold-champagne;
+  }
 }
 
 .line {
-  width: 64px;
+  width: 58px;
   height: 2px;
-  margin: 0 auto 28px;
+  margin: 16px auto;
   background: $gradient-gold-line;
 }
 
-.content p {
-  margin: 0 auto 24px;
+.intro {
+  margin: 0 0 9px;
+  color: $color-text-primary;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.subtitle {
+  max-width: 660px;
+  margin: 0 auto;
   color: $color-text-secondary;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.benefitCard {
+  position: relative;
+  min-height: 190px;
+  padding: 20px 22px;
+  overflow: hidden;
+  border: 1px solid rgba(211, 164, 82, 0.2);
+  border-radius: 13px;
+  background: linear-gradient(
+    145deg,
+    rgba(25, 43, 61, 0.95),
+    rgba(16, 29, 43, 0.97)
+  );
+  opacity: 0;
+  animation: cardAppear 0.6s ease forwards;
+  animation-delay: calc(var(--card-index) * 0.1s);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: rgba(229, 189, 112, 0.55);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+
+    .icon {
+      transform: scale(1.08);
+      color: $color-gold-highlight;
+    }
+
+    .cardGlow {
+      opacity: 1;
+    }
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 39px;
+  height: 39px;
+  border: 1px solid rgba(211, 164, 82, 0.3);
+  border-radius: 10px;
+  color: $color-gold-champagne;
+  background: rgba(184, 134, 69, 0.09);
+  font-size: 21px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.cardLine {
+  width: 45px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(229, 189, 112, 0.5),
+    transparent
+  );
+}
+
+.benefitCard h2 {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 8px;
+  color: $color-text-primary;
   font-size: 16px;
-  line-height: 1.8;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.description {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: $color-text-secondary;
+  font-size: 12px;
+  line-height: 1.65;
 }
 
 .note {
+  position: relative;
+  z-index: 1;
+  margin: 12px 0 0;
   color: $color-gold-champagne;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 10px;
+  font-style: italic;
+  line-height: 1.5;
+  opacity: 0.85;
 }
 
-@media (max-width: 768px) {
-  .wrapper {
-    min-height: 60vh;
-    padding: 60px 20px;
+.cardGlow {
+  position: absolute;
+  right: -90px;
+  bottom: -110px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(184, 134, 69, 0.14),
+    transparent 70%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.bottomText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 24px;
+
+  span {
+    color: $color-gold-champagne;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
   }
 
-  .content p {
-    font-size: 14px;
+  p {
+    margin: 0;
+    color: $color-text-muted;
+    font-size: 11px;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  from {
+    opacity: 0.6;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@media (max-width: 850px) {
+  .wrapper {
+    min-height: auto;
+    padding: 65px 22px;
+  }
+
+  .benefitsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .wrapper {
+    padding: 60px 17px 40px;
+  }
+
+  .heading {
+    margin-bottom: 27px;
+  }
+
+  .heading h1 {
+    font-size: 38px;
+  }
+
+  .intro {
+    font-size: 18px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+
+  .desktopBreak {
+    display: none;
+  }
+
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .benefitCard {
+    min-height: auto;
+    padding: 19px;
+  }
+
+  .bottomText {
+    flex-direction: column;
+    gap: 7px;
+    text-align: center;
+  }
+}
+
+@media (max-height: 760px) and (min-width: 851px) {
+  .wrapper {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .heading {
+    margin-bottom: 17px;
+  }
+
+  .heading h1 {
+    font-size: 40px;
+  }
+
+  .label {
+    margin-bottom: 7px;
+  }
+
+  .line {
+    margin: 11px auto;
+  }
+
+  .benefitCard {
+    min-height: 165px;
+    padding: 15px 18px;
+  }
+
+  .cardHeader {
+    margin-bottom: 9px;
+  }
+
+  .icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .bottomText {
+    margin-top: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .backgroundGlow,
+  .labelDot,
+  .heading,
+  .benefitCard {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .benefitCard,
+  .icon {
+    transition: none;
   }
 }
