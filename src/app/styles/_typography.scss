@@ -1,0 +1,43 @@
+
+// ========================================
+// REMOTE PAY — TYPOGRAPHY
+// ========================================
+
+@use './variables' as *;
+
+h1, h2, h3, h4, h5, h6 {
+  color: $color-text-primary;
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(36px, 5vw, 64px);
+  letter-spacing: -0.04em;
+}
+
+h2 {
+  font-size: clamp(28px, 4vw, 44px);
+  letter-spacing: -0.03em;
+}
+
+h3 {
+  font-size: $font-size-2xl;
+}
+
+p {
+  color: $color-text-secondary;
+  line-height: 1.7;
+}
+
+.text-muted {
+  color: $color-text-muted;
+}
+
+.text-primary {
+  color: $color-primary;
+}
+
+.text-success {
+  color: $color-success;
+}

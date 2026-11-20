@@ -1,0 +1,72 @@
+
+// ========================================
+// REMOTE PAY — MIXINS
+// ========================================
+
+@use './variables' as *;
+
+// RESPONSIVE BREAKPOINTS
+
+@mixin mobile {
+  @media (max-width: 575px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+// FLEXBOX
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// CONTAINER
+
+@mixin container {
+  width: min(
+    calc(100% - #{$container-padding * 2}),
+    #{$container-width}
+  );
+  margin-inline: auto;
+}
+
+// BUTTON RESET
+
+@mixin button-reset {
+  border: none;
+  outline: none;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+// TRANSITION
+
+@mixin transition($property: all) {
+  transition: $property $transition-base;
+}

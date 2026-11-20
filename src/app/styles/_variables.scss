@@ -1,0 +1,200 @@
+
+// ========================================
+// REMOTE PAY — DESIGN TOKENS
+// Theme: Midnight Navy / Champagne Gold
+// ========================================
+
+
+// ========================================
+// COLORS — BACKGROUNDS
+// ========================================
+
+$color-bg-primary: #0B1927;
+$color-bg-secondary: #101D2B;
+$color-bg-tertiary: #142333;
+$color-bg-elevated: #192B3D;
+
+
+// ========================================
+// COLORS — BRAND: GOLD
+// ========================================
+
+$color-primary: #B88645;
+$color-primary-hover: #9B7137;
+$color-primary-light: #D8AD62;
+$color-primary-soft: rgba(211, 164, 82, 0.14);
+
+
+// ========================================
+// COLORS — GOLD ACCENTS
+// ========================================
+
+$color-gold-light: #FFF0C4;
+$color-gold-champagne: #E5BD70;
+$color-gold-bronze: #8F682F;
+$color-gold-rich: #D4A958;
+$color-gold-highlight: #F5D58D;
+
+
+// ========================================
+// COLORS — TEXT
+// ========================================
+
+$color-text-primary: #F4F0E8;
+$color-text-secondary: #C3BBAE;
+$color-text-muted: #89877F;
+$color-text-inverse: #0B1927;
+
+
+// ========================================
+// COLORS — BORDERS
+// ========================================
+
+$color-border: rgba(229, 189, 112, 0.12);
+$color-border-light: rgba(229, 189, 112, 0.28);
+$color-border-gold: rgba(211, 164, 82, 0.45);
+
+
+// ========================================
+// COLORS — STATUS
+// ========================================
+
+$color-success: #10B981;
+$color-success-bg: rgba(16, 185, 129, 0.12);
+
+$color-warning: #E5BD70;
+$color-warning-bg: rgba(229, 189, 112, 0.14);
+
+$color-error: #EF4444;
+$color-error-bg: rgba(239, 68, 68, 0.12);
+
+
+// ========================================
+// TYPOGRAPHY
+// ========================================
+
+$font-family-base: 'Inter', -apple-system,
+  BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+$font-family-brand: 'Montserrat', Arial, sans-serif;
+
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-base: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 20px;
+$font-size-2xl: 24px;
+$font-size-3xl: 32px;
+$font-size-4xl: 48px;
+
+
+// ========================================
+// FONT WEIGHTS
+// ========================================
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+
+// ========================================
+// BORDER RADIUS
+// ========================================
+
+$radius-sm: 6px;
+$radius-md: 10px;
+$radius-lg: 16px;
+$radius-xl: 24px;
+$radius-full: 9999px;
+
+
+// ========================================
+// CONTAINER
+// ========================================
+
+$container-width: 1200px;
+$container-padding: 24px;
+
+
+// ========================================
+// SPACING
+// ========================================
+
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-2xl: 48px;
+$spacing-3xl: 64px;
+
+
+// ========================================
+// SHADOWS
+// ========================================
+
+$shadow-card: 0 8px 32px rgba(0, 0, 0, 0.35);
+
+$shadow-button:
+  0 4px 20px rgba(211, 164, 82, 0.25);
+
+$shadow-gold:
+  0 0 18px rgba(229, 189, 112, 0.18);
+
+$shadow-gold-hover:
+  0 0 24px rgba(229, 189, 112, 0.3);
+
+
+// ========================================
+// GRADIENTS
+// ========================================
+
+$gradient-gold: linear-gradient(
+  110deg,
+  #B58A43 10%,
+  #FFF0C4 35%,
+  #D4A958 50%,
+  #FFF0C4 65%,
+  #B58A43 90%
+);
+
+$gradient-gold-button: linear-gradient(
+  110deg,
+  #D4A958,
+  #FFF0C4,
+  #D4A958
+);
+
+$gradient-gold-line: linear-gradient(
+  90deg,
+  #B98535,
+  #F5D58D,
+  #B98535
+);
+
+
+// ========================================
+// TRANSITIONS
+// ========================================
+
+$transition-fast: 0.15s ease;
+$transition-base: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+
+// ========================================
+// ANIMATIONS
+// ========================================
+
+$animation-gold-shimmer: goldShimmer 7s ease-in-out infinite;
+
+
+// ========================================
+// Z-INDEX
+// ========================================
+
+$z-dropdown: 100;
+$z-sticky: 200;
+$z-modal: 300;
+$z-tooltip: 400;

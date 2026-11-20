@@ -1,0 +1,130 @@
+
+@use '../../../app/styles/variables' as *;
+@use '../../../app/styles/mixins' as *;
+
+.footer {
+  padding: $spacing-3xl 0 $spacing-lg;
+
+  background: $color-bg-secondary;
+  border-top: 1px solid $color-border;
+}
+
+.container {
+  @include container;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: $spacing-2xl;
+
+  padding-bottom: $spacing-2xl;
+}
+
+.brand {
+  max-width: 340px;
+}
+
+.logo {
+  display: inline-block;
+
+  color: $color-text-primary;
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  text-decoration: none;
+
+  span {
+    color: $color-primary-light;
+  }
+}
+
+.description {
+  margin-top: $spacing-md;
+
+  color: $color-text-secondary;
+  font-size: $font-size-sm;
+  line-height: 1.7;
+}
+
+.linksColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $spacing-sm;
+
+  h3 {
+    margin-bottom: $spacing-xs;
+
+    color: $color-text-primary;
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+  }
+
+  a {
+    color: $color-text-secondary;
+    font-size: $font-size-sm;
+    text-decoration: none;
+
+    @include transition(color);
+
+    &:hover {
+      color: $color-primary-light;
+    }
+  }
+}
+
+.bottom {
+  @include flex-between;
+
+  gap: $spacing-md;
+  padding-top: $spacing-lg;
+
+  border-top: 1px solid $color-border;
+
+  p,
+  a {
+    color: $color-text-muted;
+    font-size: $font-size-xs;
+  }
+
+  a {
+    text-decoration: none;
+
+    @include transition(color);
+
+    &:hover {
+      color: $color-text-secondary;
+    }
+  }
+}
+
+@include tablet {
+  .main {
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-xl;
+  }
+
+  .brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@include mobile {
+  .footer {
+    padding-top: $spacing-2xl;
+  }
+
+  .main {
+    grid-template-columns: 1fr;
+    gap: $spacing-xl;
+  }
+
+  .brand {
+    grid-column: auto;
+  }
+
+  .bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
