@@ -1,53 +1,256 @@
 
-.globe {
-  position: relative;
+.globeWrapper {
   width: 100%;
-  height: 100%;
-  min-height: 500px;
-
+  max-width: 560px;
+  aspect-ratio: 1;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-
   overflow: hidden;
+  isolation: isolate;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 50% 48%,
+      rgba(184, 134, 69, 0.09),
+      transparent 48%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      #142333 0%,
+      #0b1927 65%,
+      #0b1927 100%
+    );
+}
 
-  canvas {
-    display: block;
+.ambientGlow {
+  position: absolute;
+  inset: 15%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(216, 173, 98, 0.2) 0%,
+    rgba(184, 134, 69, 0.08) 40%,
+    transparent 72%
+  );
+  filter: blur(35px);
+  animation: glow 7s ease-in-out infinite alternate;
+}
+
+.orbit {
+  position: absolute;
+  width: 75%;
+  height: 75%;
+  border: 1px solid rgba(216, 173, 98, 0.16);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.orbit1 {
+  transform: rotate(-30deg) scaleY(0.38);
+  animation: orbitRotate 24s linear infinite;
+}
+
+.orbit2 {
+  transform: rotate(45deg) scaleY(0.55);
+  border-color: rgba(216, 173, 98, 0.12);
+  animation: orbitRotateReverse 30s linear infinite;
+}
+
+.orbit3 {
+  width: 58%;
+  height: 58%;
+  border-color: rgba(216, 173, 98, 0.1);
+  animation: orbitPulse 6s ease-in-out infinite;
+}
+
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.particle {
+  --i: 0;
+  position: absolute;
+  left: calc(12% + (var(--i) * 4.2%));
+  top: calc(18% + (var(--i) * 13px));
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #e5bd70;
+  box-shadow: 0 0 9px 2px rgba(229, 189, 112, 0.45);
+  opacity: 0.35;
+  animation: particleFloat
+    calc(4s + (var(--i) * 0.35s))
+    ease-in-out infinite alternate;
+  animation-delay: calc(var(--i) * -0.4s);
+}
+
+.centerContent {
+  position: relative;
+  z-index: 2;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.globeIcon {
+  width: 116px;
+  height: 116px;
+  margin-bottom: 22px;
+  color: #e5bd70;
+  filter: drop-shadow(0 0 16px rgba(216, 173, 98, 0.2));
+  animation: iconFloat 5s ease-in-out infinite;
+
+  svg {
     width: 100%;
     height: 100%;
   }
 }
 
-@media (max-width: 768px) {
-  .globe {
-    min-height: 280px;
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 13px;
+  border: 1px solid rgba(216, 173, 98, 0.25);
+  border-radius: 30px;
+  background: rgba(184, 134, 69, 0.08);
+  color: #d8ad62;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
 
-    canvas {
-      max-width: 340px;
-      max-height: 340px;
-      margin: 0 auto;
-    }
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d8ad62;
+  box-shadow: 0 0 9px rgba(216, 173, 98, 0.8);
+  animation: blink 2s ease-in-out infinite;
+}
+
+.title {
+  margin: 22px 0 12px;
+  color: #f4f0e8;
+  font-size: clamp(23px, 3vw, 31px);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.8px;
+
+  span {
+    color: #e5bd70;
   }
 }
 
-@media (max-width: 480px) {
-  .globe {
-    min-height: 220px;
+.description {
+  max-width: 330px;
+  margin: 0;
+  color: #aeb8c0;
+  font-size: 13px;
+  line-height: 1.8;
+}
 
-    canvas {
-      max-width: 260px;
-      max-height: 260px;
-    }
+.progress {
+  width: 90px;
+  height: 2px;
+  margin-top: 25px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: rgba(216, 173, 98, 0.13);
+
+  span {
+    display: block;
+    width: 40%;
+    height: 100%;
+    border-radius: inherit;
+    background: #e5bd70;
+    box-shadow: 0 0 8px #d8ad62;
+    animation: progressMove 3s ease-in-out infinite;
   }
 }
 
-@media (max-width: 360px) {
-  .globe {
-    min-height: 190px;
+@keyframes glow {
+  from {
+    opacity: 0.55;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
 
-    canvas {
-      max-width: 220px;
-      max-height: 220px;
-    }
+@keyframes orbitRotate {
+  to {
+    transform: rotate(330deg) scaleY(0.38);
+  }
+}
+
+@keyframes orbitRotateReverse {
+  to {
+    transform: rotate(-315deg) scaleY(0.55);
+  }
+}
+
+@keyframes orbitPulse {
+  0%, 100% {
+    transform: scale(0.95);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.8;
+  }
+}
+
+@keyframes particleFloat {
+  from {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.2;
+  }
+  to {
+    transform: translate3d(8px, -15px, 0);
+    opacity: 0.85;
+  }
+}
+
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes progressMove {
+  0% {
+    transform: translateX(-110%);
+  }
+  100% {
+    transform: translateX(250%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambientGlow,
+  .orbit,
+  .particle,
+  .globeIcon,
+  .statusDot,
+  .progress span {
+    animation: none;
   }
 }

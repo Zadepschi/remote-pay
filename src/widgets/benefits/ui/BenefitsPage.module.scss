@@ -1,0 +1,64 @@
+@use '../../../app/styles/variables' as *;
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 65vh;
+  padding: 80px 24px;
+  background: $color-bg-primary;
+  text-align: center;
+}
+
+.content {
+  width: 100%;
+  max-width: 680px;
+}
+
+.label {
+  display: inline-block;
+  margin-bottom: 24px;
+  color: $color-gold-champagne;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+}
+
+.content h1 {
+  margin: 0 0 24px;
+  color: $color-text-primary;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.line {
+  width: 64px;
+  height: 2px;
+  margin: 0 auto 28px;
+  background: $gradient-gold-line;
+}
+
+.content p {
+  margin: 0 auto 24px;
+  color: $color-text-secondary;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.note {
+  color: $color-gold-champagne;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    min-height: 60vh;
+    padding: 60px 20px;
+  }
+
+  .content p {
+    font-size: 14px;
+  }
+}
