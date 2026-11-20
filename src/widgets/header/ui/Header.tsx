@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './Header.module.scss';
 
@@ -39,9 +40,9 @@ export function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <a
+        <Link
           className={styles.logo}
-          href="/"
+          to="/"
           aria-label="Remote Pay"
           onClick={closeMenu}
         >
@@ -49,13 +50,13 @@ export function Header() {
           <span>
             Remote<span className={styles.logoAccent}>Pay</span>
           </span>
-        </a>
+        </Link>
 
         <nav className={styles.navigation} aria-label="Основная навигация">
           {navigation.map((item) => (
-            <a key={item.href} href={item.href}>
+            <Link key={item.href} to={item.href}>
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -87,27 +88,25 @@ export function Header() {
           className={styles.mobileNavigation}
           aria-label="Мобильная навигация"
         >
-         {navigation.map((item) => (
-            <a
+          {navigation.map((item) => (
+            <Link
               key={item.href}
-              href={item.href}
+              to={item.href}
               onClick={closeMenu}
               tabIndex={isMenuOpen ? 0 : -1}
             >
-           
-
               <span className={styles.menuLabel}>{item.label}</span>
-            </a>
+            </Link>
           ))}
 
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className={styles.mobileContact}
             onClick={closeMenu}
             tabIndex={isMenuOpen ? 0 : -1}
           >
             Запросить консультацию
-          </a>
+          </Link>
         </nav>
       </div>
     </header>

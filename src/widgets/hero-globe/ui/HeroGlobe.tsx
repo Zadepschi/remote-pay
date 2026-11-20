@@ -74,11 +74,6 @@ export const HeroGlobe = () => {
           <span>в разработке</span>
         </h2>
 
-        <p className={styles.description}>
-          Скоро здесь появится наша интерактивная
-          визуализация международных переводов
-        </p>
-
         <div className={styles.progress}>
           <span />
         </div>

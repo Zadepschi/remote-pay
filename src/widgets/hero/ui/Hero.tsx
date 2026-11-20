@@ -33,7 +33,6 @@ export function Hero() {
           <div className={styles.actions}>
             <a href="#contact" className={styles.primaryButton}>
               Запросить консультацию
-              <span aria-hidden="true">↗</span>
             </a>
 
             <a href="#how-it-works" className={styles.secondaryButton}>
@@ -49,7 +48,6 @@ export function Hero() {
           <HeroGlobe />
 
           <div className={`${styles.infoCard} ${styles.topCard}`}>
-            <div className={styles.cardIcon}>↗</div>
             <div>
               <span>Международное сотрудничество</span>
               <strong>Без лишней сложности</strong>
@@ -57,7 +55,6 @@ export function Hero() {
           </div>
 
           <div className={`${styles.infoCard} ${styles.bottomCard}`}>
-            <div className={styles.cardIcon}>◎</div>
             <div>
               <span>Административные процессы</span>
               <strong>Сопровождение выплат</strong>
