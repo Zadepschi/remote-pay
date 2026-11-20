@@ -8,6 +8,7 @@ const benefits = [
     description:
       'Помогаем координировать этапы расчётов и сбора документов.',
     note: 'Больше времени на действительно важное.',
+    variant: 'featured',
   },
   {
     icon: '◎',
@@ -15,6 +16,7 @@ const benefits = [
     description:
       'Вы взаимодействуете с нашей командой по организационным вопросам согласованной услуги.',
     note: 'Не нужно искать крайнего в переписке.',
+    variant: 'regular',
   },
   {
     icon: '▤',
@@ -22,6 +24,7 @@ const benefits = [
     description:
       'Помогаем систематизировать документы и информацию о международных платежах.',
     note: 'Документы любят порядок. Мы тоже.',
+    variant: 'regular',
   },
   {
     icon: '◇',
@@ -29,6 +32,7 @@ const benefits = [
     description:
       'Заранее согласовываем комиссию, валюту и возможные расходы.',
     note: 'Никаких сюрпризов в мелком шрифте.',
+    variant: 'regular',
   },
   {
     icon: '◎',
@@ -36,6 +40,7 @@ const benefits = [
     description:
       'Рассматриваем выплаты в разные страны с учётом доступности платёжных решений.',
     note: 'Границы есть у карт. У задач бизнеса — реже.',
+    variant: 'regular',
   },
   {
     icon: '✧',
@@ -43,6 +48,7 @@ const benefits = [
     description:
       'При необходимости помогаем найти специалистов под требования и бюджет компании.',
     note: 'Не только переводы, но и поиск нужных людей.',
+    variant: 'wide',
   },
 ];
 
@@ -81,7 +87,9 @@ export function BenefitsPage() {
         <div className={styles.benefitsGrid}>
           {benefits.map((benefit, index) => (
             <article
-              className={styles.benefitCard}
+              className={`${styles.benefitCard} ${
+                styles[benefit.variant]
+              }`}
               key={benefit.title}
               style={{ '--card-index': index } as React.CSSProperties}
             >
@@ -96,11 +104,10 @@ export function BenefitsPage() {
                 {benefit.description}
               </p>
 
-              <p className={styles.note}>
-                {benefit.note}
-              </p>
+              <p className={styles.note}>{benefit.note}</p>
 
-              <div className={styles.cardGlow} />
+              <span className={styles.cardCorner} />
+              <span className={styles.cardGlow} />
             </article>
           ))}
         </div>

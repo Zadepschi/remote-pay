@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   min-height: calc(100vh - 80px);
-  padding: 38px 24px;
+  padding: 28px 24px;
   overflow: hidden;
   background: $color-bg-primary;
   isolation: isolate;
@@ -51,7 +51,7 @@
 
 .heading {
   max-width: 760px;
-  margin: 0 auto 32px;
+  margin: 0 auto 25px;
   text-align: center;
   animation: fadeUp 0.7s ease both;
 }
@@ -60,11 +60,11 @@
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   color: $color-gold-champagne;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.2em;
 }
 
 .labelDot {
@@ -79,9 +79,9 @@
 .heading h1 {
   margin: 0;
   color: $color-text-primary;
-  font-size: clamp(36px, 4vw, 50px);
+  font-size: clamp(40px, 4vw, 52px);
   font-weight: 600;
-  line-height: 1.1;
+  line-height: 1.05;
   letter-spacing: -0.04em;
 
   span {
@@ -92,30 +92,30 @@
 .line {
   width: 58px;
   height: 2px;
-  margin: 17px auto;
+  margin: 12px auto;
   background: $gradient-gold-line;
 }
 
 .intro {
-  margin: 0 0 7px;
+  margin: 0 0 5px;
   color: $color-text-primary;
-  font-size: 19px;
+  font-size: 21px;
   font-weight: 500;
-  line-height: 1.4;
+  line-height: 1.3;
 }
 
 .subtitle {
   max-width: 680px;
   margin: 0 auto;
   color: $color-text-secondary;
-  font-size: 13px;
-  line-height: 1.65;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .servicesGrid {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 16px;
+  gap: 13px;
 }
 
 .serviceCard {
@@ -123,8 +123,8 @@
   display: flex;
   flex-direction: column;
   grid-column: span 2;
-  min-height: 190px;
-  padding: 23px 25px;
+  min-height: 180px;
+  padding: 18px 22px;
   overflow: hidden;
   border: 1px solid rgba(211, 164, 82, 0.2);
   border-radius: 14px;
@@ -146,12 +146,12 @@
   }
 
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     border-color: rgba(229, 189, 112, 0.6);
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
 
     .serviceIcon {
-      transform: scale(1.08);
+      transform: scale(1.06);
       color: $color-gold-highlight;
       background: rgba(184, 134, 69, 0.17);
     }
@@ -168,25 +168,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
-  margin-bottom: 15px;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 10px;
   border: 1px solid rgba(211, 164, 82, 0.3);
-  border-radius: 11px;
+  border-radius: 10px;
   color: $color-gold-champagne;
   background: rgba(184, 134, 69, 0.08);
-  font-size: 24px;
+  font-size: 23px;
   transition: all 0.3s ease;
 }
 
 .serviceCard h2 {
   position: relative;
   z-index: 1;
-  margin: 0 0 9px;
+  margin: 0 0 6px;
   color: $color-text-primary;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
-  line-height: 1.4;
+  line-height: 1.3;
 }
 
 .serviceCard p {
@@ -194,8 +194,8 @@
   z-index: 1;
   margin: 0;
   color: $color-text-secondary;
-  font-size: 12px;
-  line-height: 1.7;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .cardGlow {
@@ -230,7 +230,7 @@
 @keyframes cardAppear {
   from {
     opacity: 0;
-    transform: translateY(22px);
+    transform: translateY(18px);
   }
 
   to {
@@ -262,21 +262,21 @@
 @media (max-width: 900px) {
   .wrapper {
     min-height: auto;
-    padding: 65px 22px;
+    padding: 55px 22px;
   }
 
   .serviceCard {
-    min-height: 205px;
+    min-height: 195px;
   }
 }
 
 @media (max-width: 600px) {
   .wrapper {
-    padding: 65px 17px 45px;
+    padding: 55px 17px 40px;
   }
 
   .heading {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
   }
 
   .heading h1 {
@@ -284,68 +284,90 @@
   }
 
   .intro {
-    font-size: 17px;
+    font-size: 19px;
   }
 
   .subtitle {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .servicesGrid {
     grid-template-columns: 1fr;
-    gap: 13px;
+    gap: 12px;
   }
 
   .serviceCard,
   .serviceCard:nth-child(4) {
     grid-column: auto;
     min-height: auto;
-    padding: 22px;
-  }
-
-  .serviceIcon {
-    width: 39px;
-    height: 39px;
-    margin-bottom: 12px;
-  }
-
-  .serviceCard h2 {
-    font-size: 16px;
-  }
-}
-
-@media (max-height: 760px) and (min-width: 901px) {
-  .wrapper {
-    padding-top: 22px;
-    padding-bottom: 22px;
-  }
-
-  .heading {
-    margin-bottom: 20px;
-  }
-
-  .heading h1 {
-    font-size: 40px;
-  }
-
-  .label {
-    margin-bottom: 9px;
-  }
-
-  .line {
-    margin: 12px auto;
-  }
-
-  .serviceCard {
-    min-height: 165px;
-    padding: 17px 21px;
+    padding: 18px 20px;
   }
 
   .serviceIcon {
     width: 36px;
     height: 36px;
-    margin-bottom: 10px;
+    margin-bottom: 9px;
+  }
+
+  .serviceCard h2 {
+    font-size: 17px;
+  }
+
+  .serviceCard p {
+    font-size: 14px;
+  }
+}
+
+@media (max-height: 760px) and (min-width: 901px) {
+  .wrapper {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .heading {
+    margin-bottom: 17px;
+  }
+
+  .heading h1 {
+    font-size: 42px;
+  }
+
+  .label {
+    margin-bottom: 7px;
+  }
+
+  .line {
+    margin: 9px auto;
+  }
+
+  .intro {
+    font-size: 19px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .serviceCard {
+    min-height: 165px;
+    padding: 14px 19px;
+  }
+
+  .serviceIcon {
+    width: 34px;
+    height: 34px;
+    margin-bottom: 7px;
     font-size: 21px;
+  }
+
+  .serviceCard h2 {
+    font-size: 17px;
+    margin-bottom: 5px;
+  }
+
+  .serviceCard p {
+    font-size: 13px;
+    line-height: 1.45;
   }
 }
 
