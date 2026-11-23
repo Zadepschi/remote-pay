@@ -62,7 +62,7 @@ export function BenefitsPage() {
         <header className={styles.heading}>
           <span className={styles.label}>
             <span className={styles.labelDot} />
-            REMOTE PAY
+            Employer of Record
           </span>
 
           <h1>
@@ -113,7 +113,7 @@ export function BenefitsPage() {
         </div>
 
         <div className={styles.bottomText}>
-          <span>REMOTE PAY</span>
+          <span>Employer of Record</span>
           <p>Сложные процессы. Более понятная организация.</p>
         </div>
       </div>

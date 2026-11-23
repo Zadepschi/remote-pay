@@ -1,4 +1,3 @@
-
 import styles from './ServicesPage.module.scss';
 
 const services = [
@@ -44,7 +43,7 @@ export function ServicesPage() {
         <div className={styles.heading}>
           <span className={styles.label}>
             <span className={styles.labelDot} />
-            REMOTE PAY
+            Employer of Record
           </span>
 
           <h1>

@@ -1,64 +1,759 @@
+
 @use '../../../app/styles/variables' as *;
 
 .wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 65vh;
-  padding: 80px 24px;
-  background: $color-bg-primary;
-  text-align: center;
+  min-height: calc(100vh - 98px);
+  padding: 24px 24px 70px;
+  box-sizing: border-box;
+  background:
+    radial-gradient(
+      ellipse at 85% 5%,
+      rgba(184, 134, 69, 0.08),
+      transparent 34%
+    ),
+    $color-bg-primary;
 }
 
 .content {
   width: 100%;
-  max-width: 680px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.heading {
+  max-width: 760px;
+  margin-bottom: 38px;
 }
 
 .label {
   display: inline-block;
-  margin-bottom: 24px;
+  margin-bottom: 15px;
   color: $color-gold-champagne;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
 
-.content h1 {
-  margin: 0 0 24px;
+.heading h1,
+.successCard h1 {
+  margin: 0;
   color: $color-text-primary;
-  font-size: clamp(32px, 5vw, 48px);
+  font-size: clamp(34px, 5vw, 52px);
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+.heading h1 span {
+  color: $color-gold-champagne;
 }
 
 .line {
-  width: 64px;
+  width: 66px;
   height: 2px;
-  margin: 0 auto 28px;
+  margin: 22px 0;
   background: $gradient-gold-line;
 }
 
-.content p {
-  margin: 0 auto 24px;
+.heading > p {
+  max-width: 650px;
+  margin: 0;
   color: $color-text-secondary;
-  font-size: 16px;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* Main layout */
+
+.contactLayout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.5fr);
+  align-items: start;
+  gap: 24px;
+}
+
+.contactPanel,
+.formPanel {
+  min-width: 0;
+  border: 1px solid rgba(211, 164, 82, 0.2);
+  border-radius: 12px;
+  background: linear-gradient(
+    145deg,
+    rgba(25, 43, 61, 0.88),
+    rgba(16, 29, 43, 0.94)
+  );
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+.contactPanel {
+  position: sticky;
+  top: 120px;
+  padding: 28px 25px;
+}
+
+.panelHeading h2,
+.formHeading h2 {
+  margin: 0 0 10px;
+  color: $color-text-primary;
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.panelHeading > p,
+.formHeading > p {
+  margin: 0;
+  color: $color-text-muted;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+  margin-top: 32px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.contactIcon {
+  display: flex;
+  flex: 0 0 42px;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(216, 173, 98, 0.35);
+  border-radius: 9px;
+  background: rgba(8, 22, 35, 0.55);
+  color: $color-gold-champagne;
+}
+
+.contactIcon svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contactText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 5px;
+  padding-top: 2px;
+}
+
+.contactLabel {
+  color: $color-text-muted;
+  font-size: 12px;
+}
+
+.contactValue {
+  color: $color-text-primary;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.contactItem[href] .contactValue {
+  transition: color 0.2s ease;
+}
+
+.contactItem[href]:hover .contactValue {
+  color: $color-gold-champagne;
+}
+
+.sampleNote {
+  margin-top: 3px;
+  color: #d6a36c;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.contactNote {
+  display: flex;
+  align-items: stretch;
+  gap: 13px;
+  margin-top: 34px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(211, 164, 82, 0.18);
+}
+
+.noteLine {
+  flex: 0 0 2px;
+  border-radius: 2px;
+  background: $gradient-gold-line;
+}
+
+.contactNote p {
+  margin: 0;
+  color: $color-text-muted;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* Form panel */
+
+.formPanel {
+  padding: 28px;
+}
+
+.formHeading {
+  margin-bottom: 25px;
+}
+
+.formHeading h2 {
+  font-size: 25px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.formSection {
+  padding: 24px;
+  border: 1px solid rgba(211, 164, 82, 0.2);
+  border-radius: 12px;
+  background: linear-gradient(
+    145deg,
+    rgba(25, 43, 61, 0.65),
+    rgba(16, 29, 43, 0.72)
+  );
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.sectionNumber {
+  display: flex;
+  flex: 0 0 36px;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(216, 173, 98, 0.45);
+  border-radius: 9px;
+  color: $color-gold-champagne;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.sectionHeading h3 {
+  margin: 0 0 5px;
+  color: $color-text-primary;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.sectionHeading p {
+  margin: 0;
+  color: $color-text-muted;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 8px;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  color: $color-text-secondary;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  border: 1px solid rgba(195, 187, 174, 0.2);
+  border-radius: 7px;
+  outline: none;
+  background: rgba(8, 22, 35, 0.65);
+  color: $color-text-primary;
+  font: inherit;
+  font-size: 14px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.field input,
+.field select {
+  height: 46px;
+  padding: 0 14px;
+}
+
+.field textarea {
+  min-height: 100px;
+  padding: 13px 14px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: rgba(195, 187, 174, 0.45);
+}
+
+.field select {
+  color-scheme: dark;
+  cursor: pointer;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: $color-primary-light;
+  background: rgba(8, 22, 35, 0.9);
+  box-shadow: 0 0 0 3px rgba(184, 134, 69, 0.1);
+}
+
+.field input:hover,
+.field select:hover,
+.field textarea:hover {
+  border-color: rgba(216, 173, 98, 0.55);
+}
+
+.field :global(.validation-error) {
+  color: #f0a19a;
+}
+
+/* Services */
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.serviceOption,
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  color: $color-text-secondary;
+  font-size: 13px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.serviceOption input,
+.consent input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.customCheckbox {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 18px;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+  border: 1px solid rgba(216, 173, 98, 0.55);
+  border-radius: 4px;
+  background: rgba(8, 22, 35, 0.65);
+  transition: 0.2s ease;
+}
+
+.serviceOption input:checked + .customCheckbox,
+.consent input:checked + .customCheckbox {
+  border-color: $color-gold-champagne;
+  background: $color-primary;
+}
+
+.serviceOption input:checked + .customCheckbox::after,
+.consent input:checked + .customCheckbox::after {
+  width: 8px;
+  height: 5px;
+  border-bottom: 2px solid #fff;
+  border-left: 2px solid #fff;
+  content: '';
+  transform: rotate(-45deg) translate(1px, -1px);
+}
+
+.serviceOption input:focus-visible + .customCheckbox,
+.consent input:focus-visible + .customCheckbox {
+  outline: 2px solid $color-gold-highlight;
+  outline-offset: 3px;
+}
+
+.serviceOption:hover,
+.consent:hover {
+  color: $color-text-primary;
+}
+
+.commentField {
+  margin-top: 4px;
+}
+
+/* Submit */
+
+.formFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 17px;
+  padding: 23px 24px;
+  border: 1px solid rgba(211, 164, 82, 0.3);
+  border-radius: 11px;
+  background: rgba(20, 35, 51, 0.8);
+}
+
+.consent {
+  max-width: 700px;
+  color: $color-text-muted;
+  font-size: 12px;
+}
+
+.submitButton {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+
+  min-width: 220px;
+  min-height: 49px;
+  padding: 0 22px;
+
+  border: 1px solid rgba(255, 240, 196, 0.45);
+  border-radius: 7px;
+
+  background: $gradient-gold;
+  background-size: 200% 100%;
+
+  color: #172331;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+
+  box-shadow: 0 3px 12px rgba(184, 134, 69, 0.15);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.2s ease;
+
+  animation: goldShimmer 3.5s ease-in-out infinite;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -50%;
+    left: -75%;
+
+    width: 45%;
+    height: 200%;
+
+    background: linear-gradient(
+      110deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.08) 25%,
+      rgba(255, 248, 218, 0.75) 50%,
+      rgba(255, 255, 255, 0.12) 75%,
+      transparent 100%
+    );
+
+    transform: skewX(-20deg);
+    animation: goldShine 3.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 24px rgba(184, 134, 69, 0.32);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0) scale(0.98);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: wait;
+    animation: none;
+
+    &::before {
+      animation: none;
+    }
+  }
+
+  span {
+    font-size: 18px;
+    transition: transform 0.25s ease;
+  }
+
+  &:hover:not(:disabled) span {
+    transform: translate(3px, -2px);
+  }
+}
+
+@keyframes goldShimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes goldShine {
+  0% {
+    left: -75%;
+  }
+
+  55%,
+  100% {
+    left: 135%;
+  }
+}
+
+.formNote {
+  margin: -5px 0 0;
+  color: $color-text-muted;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* Success state */
+
+.successCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 650px;
+  margin: 80px auto;
+  padding: 55px 35px;
+  border: 1px solid $color-border-gold;
+  border-radius: 14px;
+  background: $color-bg-secondary;
+  text-align: center;
+}
+
+.successIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin: 15px 0 24px;
+  border: 1px solid $color-gold-champagne;
+  border-radius: 50%;
+  color: $color-gold-champagne;
+  font-size: 30px;
+}
+
+.successCard h1 {
+  font-size: clamp(30px, 4vw, 42px);
+}
+
+.successCard .line {
+  margin: 22px auto;
+}
+
+.successCard p {
+  max-width: 480px;
+  margin: 0 0 22px;
+  color: $color-text-secondary;
+  font-size: 15px;
   line-height: 1.8;
 }
 
-.note {
+.successNote {
   color: $color-gold-champagne;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
+}
+
+/* Responsive */
+
+@media (max-width: 950px) {
+  .contactLayout {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 16px;
+  }
+
+  .contactPanel {
+    padding: 23px 19px;
+  }
+
+  .formPanel {
+    padding: 22px 18px;
+  }
+
+  .formSection {
+    padding: 20px 17px;
+  }
 }
 
 @media (max-width: 768px) {
   .wrapper {
-    min-height: 60vh;
-    padding: 60px 20px;
+    min-height: calc(100vh - 80px);
+    padding: 18px 18px 55px;
   }
 
-  .content p {
+  .heading {
+    margin-bottom: 27px;
+  }
+
+  .heading h1 {
+    font-size: clamp(32px, 8vw, 43px);
+  }
+
+  .heading > p {
     font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .contactLayout {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .contactPanel {
+    position: static;
+    padding: 23px 20px;
+  }
+
+  .contactList {
+    gap: 20px;
+    margin-top: 25px;
+  }
+
+  .contactNote {
+    margin-top: 25px;
+  }
+
+  .formPanel {
+    padding: 21px 15px;
+  }
+
+  .form {
+    gap: 14px;
+  }
+
+  .formSection {
+    padding: 21px 17px;
+  }
+
+  .sectionHeading {
+    gap: 12px;
+    margin-bottom: 19px;
+  }
+
+  .sectionHeading h3 {
+    font-size: 16px;
+  }
+
+  .fields {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .fullWidth {
+    grid-column: auto;
+  }
+
+  .services {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .formFooter {
+    padding: 20px 17px;
+  }
+
+  .submitButton {
+    width: 100%;
+  }
+
+  .successCard {
+    margin: 35px auto;
+    padding: 40px 22px;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .contactItem[href] .contactValue,
+  .field input,
+  .field select,
+  .field textarea,
+  .customCheckbox {
+    transition: none;
+  }
+
+  .submitButton,
+  .submitButton::before {
+    animation: none;
+    transition: none;
+  }
+
+  .submitButton:hover:not(:disabled),
+  .submitButton:active:not(:disabled) {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .submitButton:hover:not(:disabled) span {
+    transform: none;
   }
 }

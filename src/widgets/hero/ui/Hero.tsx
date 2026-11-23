@@ -31,14 +31,17 @@ export function Hero() {
           </div>
 
           <div className={styles.actions}>
-            <a href="#contact" className={styles.primaryButton}>
+            <a  href="/contact#contact-form"  className={styles.primaryButton}>
               Запросить консультацию
             </a>
 
-            <a href="#how-it-works" className={styles.secondaryButton}>
-              Как это работает
-              <span aria-hidden="true">→</span>
-            </a>
+          <a
+  href="/services"
+  className={styles.secondaryButton}
+>
+  Наши услуги
+  <span aria-hidden="true">→</span>
+</a>
           </div>
         </div>
 

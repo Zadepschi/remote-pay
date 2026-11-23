@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import styles from './Header.module.scss';
 
@@ -43,20 +43,27 @@ export function Header() {
         <Link
           className={styles.logo}
           to="/"
-          aria-label="Remote Pay"
+          aria-label="Globeor — главная страница"
           onClick={closeMenu}
         >
-          <span className={styles.logoIcon}>R</span>
-          <span>
-            Remote<span className={styles.logoAccent}>Pay</span>
-          </span>
+          <img
+            src="/logoGlobe.png"
+            alt="Globeor"
+            className={styles.logoImage}
+          />
         </Link>
 
         <nav className={styles.navigation} aria-label="Основная навигация">
           {navigation.map((item) => (
-            <Link key={item.href} to={item.href}>
+            <NavLink
+              key={item.href}
+              to={item.href}
+              className={({ isActive }) =>
+                isActive ? styles.active : ''
+              }
+            >
               {item.label}
-            </Link>
+            </NavLink>
           ))}
         </nav>
 
@@ -89,18 +96,21 @@ export function Header() {
           aria-label="Мобильная навигация"
         >
           {navigation.map((item) => (
-            <Link
+            <NavLink
               key={item.href}
               to={item.href}
               onClick={closeMenu}
               tabIndex={isMenuOpen ? 0 : -1}
+              className={({ isActive }) =>
+                isActive ? styles.active : ''
+              }
             >
               <span className={styles.menuLabel}>{item.label}</span>
-            </Link>
+            </NavLink>
           ))}
 
           <Link
-            to="/contact"
+            to="/contact#contact-form"
             className={styles.mobileContact}
             onClick={closeMenu}
             tabIndex={isMenuOpen ? 0 : -1}

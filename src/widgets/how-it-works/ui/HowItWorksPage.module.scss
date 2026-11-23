@@ -1,64 +1,455 @@
+
 @use '../../../app/styles/variables' as *;
 
 .wrapper {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 65vh;
-  padding: 80px 24px;
+  min-height: calc(100vh - 80px);
+  padding: 65px 24px;
+  overflow: hidden;
+  isolation: isolate;
   background: $color-bg-primary;
-  text-align: center;
+}
+
+.backgroundGlow {
+  position: absolute;
+  z-index: -1;
+  top: -180px;
+  left: 50%;
+  width: 850px;
+  height: 600px;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse,
+    rgba(184, 134, 69, 0.13),
+    transparent 70%
+  );
+  pointer-events: none;
+  animation: ambientGlow 8s ease-in-out infinite alternate;
+}
+
+.gridPattern {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  opacity: 0.1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      rgba(229, 189, 112, 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(229, 189, 112, 0.08) 1px,
+      transparent 1px
+    );
+  background-size: 70px 70px;
+  mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent 90%
+  );
 }
 
 .content {
+  position: relative;
   width: 100%;
-  max-width: 680px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+// Заголовок страницы
+
+.heading {
+  max-width: 800px;
+  margin: 0 auto 65px;
+  text-align: center;
+  animation: fadeUp 0.7s ease both;
 }
 
 .label {
-  display: inline-block;
-  margin-bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 17px;
   color: $color-gold-champagne;
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
 
-.content h1 {
-  margin: 0 0 24px;
+.labelDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $color-gold-highlight;
+  box-shadow: 0 0 10px rgba(245, 213, 141, 0.8);
+  animation: pulse 2s ease-in-out infinite;
+  
+}
+
+.heading h1 {
+  margin: 0;
   color: $color-text-primary;
-  font-size: clamp(32px, 5vw, 48px);
+  font-size: clamp(42px, 4.5vw, 56px);
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+
+  span {
+    color: $color-gold-champagne;
+  }
 }
 
 .line {
   width: 64px;
   height: 2px;
-  margin: 0 auto 28px;
+  margin: 19px auto;
   background: $gradient-gold-line;
 }
 
-.content p {
-  margin: 0 auto 24px;
+.intro {
+  max-width: 750px;
+  margin: 0 auto;
+  color: $color-text-secondary;
+  font-size: 19px;
+  line-height: 1.65;
+}
+
+// Сетка шагов
+
+.stepsGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 35px;
+  align-items: start;
+}
+
+// Пунктирные линии
+
+.stepsGrid::before {
+  content: '';
+  position: absolute;
+  top: 44px;
+  left: 16.66%;
+  right: 16.66%;
+  border-top: 2px dashed rgba(211, 164, 82, 0.4);
+  pointer-events: none;
+}
+
+// Карточка шага
+
+.step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  padding: 0 15px 20px;
+  text-align: center;
+  opacity: 0;
+  animation: stepAppear 0.7s ease forwards;
+  animation-delay: calc(var(--step-index) * 0.18s);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+
+    .iconCircle {
+      border-color: rgba(229, 189, 112, 0.75);
+      box-shadow:
+        0 0 0 7px rgba(184, 134, 69, 0.06),
+        0 0 30px rgba(184, 134, 69, 0.16);
+    }
+
+    .stepIcon {
+      transform: scale(1.1);
+      color: $color-gold-highlight;
+    }
+
+    .stepGlow {
+      opacity: 1;
+    }
+  }
+}
+
+// Круглая иконка
+
+.iconCircle {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  margin-bottom: 22px;
+  border: 1px solid rgba(211, 164, 82, 0.35);
+  border-radius: 50%;
+  background: linear-gradient(
+    145deg,
+    rgba(35, 54, 72, 0.98),
+    rgba(19, 34, 49, 0.98)
+  );
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.16);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.stepIcon {
+  color: $color-gold-champagne;
+  font-size: 36px;
+  line-height: 1;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+// Номер шага
+
+.stepNumber {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: $color-gold-champagne;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.17em;
+}
+
+// Название шага
+
+.step h2 {
+  margin: 0 0 13px;
+  color: $color-text-primary;
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+// Описание шага
+
+.step p {
+  max-width: 320px;
+  margin: 0;
   color: $color-text-secondary;
   font-size: 16px;
-  line-height: 1.8;
+  line-height: 1.75;
 }
 
-.note {
-  color: $color-gold-champagne;
-  font-size: 14px;
-  font-weight: 500;
+// Золотистое свечение
+
+.stepGlow {
+  position: absolute;
+  z-index: -1;
+  bottom: -35px;
+  left: 50%;
+  width: 180px;
+  height: 120px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgba(184, 134, 69, 0.09),
+    transparent 70%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
 }
 
-@media (max-width: 768px) {
-  .wrapper {
-    min-height: 60vh;
-    padding: 60px 20px;
+// Анимации
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
   }
 
-  .content p {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes stepAppear {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ambientGlow {
+  from {
+    opacity: 0.65;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
+}
+
+// Планшеты
+
+@media (max-width: 900px) {
+  .wrapper {
+    min-height: auto;
+    padding: 65px 22px;
+  }
+
+  .heading {
+    margin-bottom: 55px;
+  }
+
+  .stepsGrid {
+    gap: 15px;
+  }
+
+  .step {
+    padding: 0 8px 15px;
+  }
+
+  .step h2 {
+    font-size: 20px;
+  }
+
+  .step p {
+    font-size: 15px;
+  }
+
+  .iconCircle {
+    width: 80px;
+    height: 80px;
+  }
+
+  .stepsGrid::before {
+    top: 40px;
+  }
+}
+
+// Мобильные устройства
+
+@media (max-width: 600px) {
+  .wrapper {
+    padding: 25px 18px;
+  }
+
+  .heading {
+    margin-bottom: 22px;
+  }
+
+  .heading h1 {
+    font-size: 34px;
+  }
+
+  .intro {
     font-size: 14px;
+  }
+
+  .stepsGrid {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+
+  .stepsGrid::before {
+    display: none;
+  }
+
+  .step {
+    padding: 0 8px 5px;
+  }
+
+  .iconCircle {
+    width: 62px;
+    height: 62px;
+    margin-bottom: 10px;
+  }
+
+  .stepIcon {
+    font-size: 27px;
+  }
+
+  .stepNumber {
+    font-size: 11px;
+  }
+
+  .step h2 {
+    font-size: 18px;
+    margin-bottom: 7px;
+  }
+
+  .step p {
+    max-width: 340px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+// Небольшая высота экрана
+
+@media (max-height: 760px) and (min-width: 901px) {
+  .wrapper {
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
+
+  .heading {
+    margin-bottom: 40px;
+  }
+
+  .iconCircle {
+    width: 76px;
+    height: 76px;
+    margin-bottom: 17px;
+  }
+
+  .stepsGrid::before {
+    top: 38px;
+  }
+
+  .step h2 {
+    font-size: 21px;
+  }
+
+  .step p {
+    font-size: 15px;
+  }
+}
+
+// Отключение анимации по настройкам пользователя
+
+@media (prefers-reduced-motion: reduce) {
+  .backgroundGlow,
+  .labelDot,
+  .heading,
+  .step {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .step,
+  .iconCircle,
+  .stepIcon {
+    transition: none;
   }
 }
