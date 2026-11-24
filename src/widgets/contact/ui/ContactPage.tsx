@@ -31,7 +31,7 @@ export default function ContactPage() {
       <main className={styles.wrapper}>
         <div className={styles.successCard}>
           <div className={styles.successIcon}>✓</div>
-          <span className={styles.label}>SHAHINPAY / THANK YOU</span>
+          <span className={styles.label}>RemotePay / THANK YOU</span>
           <h1>Заявка отправлена</h1>
           <div className={styles.line} />
           <p>
@@ -39,7 +39,7 @@ export default function ContactPage() {
             по указанным контактным данным.
           </p>
           <span className={styles.successNote}>
-            Благодарим за интерес к ShahinPay.
+            Благодарим за интерес к RemotePay.
           </span>
         </div>
       </main>
@@ -131,7 +131,7 @@ export default function ContactPage() {
             <div className={styles.contactNote}>
               <span className={styles.noteLine} />
               <p>
-                ShahinPay — решения для организации международных выплат
+                RemotePay — решения для организации международных выплат
                 и поддержки распределённых команд.
               </p>
             </div>
