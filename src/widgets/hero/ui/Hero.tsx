@@ -1,6 +1,7 @@
 
 import styles from './Hero.module.scss';
 import { HeroGlobe } from '../../hero-globe/ui/HeroGlobe';
+import { Link } from 'react-router-dom';
 
 export function Hero() {
   return (
@@ -31,17 +32,20 @@ export function Hero() {
           </div>
 
           <div className={styles.actions}>
-            <a  href="/contact#contact-form"  className={styles.primaryButton}>
+            <Link
+              to="/contact#contact-form"
+              className={styles.primaryButton}
+            >
               Запросить консультацию
-            </a>
+            </Link>
 
-          <a
-  href="/services"
-  className={styles.secondaryButton}
->
-  Наши услуги
-  <span aria-hidden="true">→</span>
-</a>
+            <Link
+              to="/services"
+              className={styles.secondaryButton}
+            >
+              Наши услуги
+              <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </div>
 
