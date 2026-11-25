@@ -14,22 +14,46 @@ export function Hero() {
           </div>
 
           <h1 className={styles.title}>
-            Международные выплаты удалённым специалистам —
-            <span> проще, быстрее, понятнее.</span>
+            Подбор специалистов и международные выплаты
+            <span> для вашего бизнеса.</span>
           </h1>
 
           <p className={styles.description}>
-            Помогаем компаниям, работающим в США, организовать
-            выплаты международным подрядчикам и сопровождаем
-            необходимые административные процессы.
+            Помогаем компаниям находить квалифицированных
+            специалистов, организовывать сотрудничество
+            с международными командами и проводить выплаты
+            зарубежным подрядчикам.
           </p>
 
-          <div className={styles.message}>
-            Вы занимаетесь бизнесом.
-            <span>
-              Мы помогаем организовать международные расчёты.
-            </span>
-          </div>
+        <div className={styles.services}>
+  <div className={styles.serviceItem}>
+    <span
+      className={styles.serviceLine}
+      aria-hidden="true"
+    />
+    <div>
+      <strong>Подбор персонала</strong>
+      <p>
+        Готовая база кандидатов и индивидуальный
+        поиск специалистов по запросу работодателя.
+      </p>
+    </div>
+  </div>
+
+  <div className={styles.serviceItem}>
+    <span
+      className={styles.serviceLine}
+      aria-hidden="true"
+    />
+    <div>
+      <strong>Международные выплаты</strong>
+      <p>
+        Организация расчётов с международными
+        подрядчиками и административное сопровождение.
+      </p>
+    </div>
+  </div>
+</div>
 
           <div className={styles.actions}>
             <Link
@@ -56,14 +80,14 @@ export function Hero() {
 
           <div className={`${styles.infoCard} ${styles.topCard}`}>
             <div>
-              <span>Международное сотрудничество</span>
-              <strong>Без лишней сложности</strong>
+              <span>Кадровые решения</span>
+              <strong>Поиск и подбор специалистов</strong>
             </div>
           </div>
 
           <div className={`${styles.infoCard} ${styles.bottomCard}`}>
             <div>
-              <span>Административные процессы</span>
+              <span>Международные расчёты</span>
               <strong>Сопровождение выплат</strong>
             </div>
           </div>

@@ -457,6 +457,7 @@
   font-size: 12px;
 }
 
+
 .submitButton {
   position: relative;
   isolation: isolate;
@@ -480,6 +481,7 @@
   color: #172331;
   font-size: 14px;
   font-weight: 700;
+
   cursor: pointer;
 
   box-shadow: 0 3px 12px rgba(184, 134, 69, 0.15);
@@ -516,6 +518,7 @@
   }
 
   &:hover:not(:disabled) {
+    cursor: pointer;
     transform: translateY(-2px);
     box-shadow: 0 7px 24px rgba(184, 134, 69, 0.32);
   }
@@ -526,7 +529,7 @@
 
   &:disabled {
     opacity: 0.6;
-    cursor: wait;
+    cursor: not-allowed;
     animation: none;
 
     &::before {
@@ -543,6 +546,7 @@
     transform: translate(3px, -2px);
   }
 }
+
 
 @keyframes goldShimmer {
   0%,
@@ -755,5 +759,41 @@
 
   .submitButton:hover:not(:disabled) span {
     transform: none;
+  }
+}
+
+
+.whatsappLink {
+  margin-top: 14px;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    color: $color-gold-champagne;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+
+    transition:
+      color 0.25s ease,
+      opacity 0.25s ease;
+
+    cursor: pointer;
+
+    span {
+      display: inline-block;
+      font-size: 16px;
+      transition: transform 0.25s ease;
+    }
+
+    &:hover {
+      color: $color-gold-highlight;
+
+      span {
+        transform: translate(3px, -3px);
+      }
+    }
   }
 }
