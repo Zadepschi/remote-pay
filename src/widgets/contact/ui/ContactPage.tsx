@@ -3,7 +3,7 @@ import { useForm, ValidationError } from '@formspree/react';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import PhoneInput from 'react-phone-number-input';
-import { Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
+import { Mail, ArrowUpRight } from 'lucide-react';
 
 import 'react-phone-number-input/style.css';
 import styles from './ContactPage.module.scss';
