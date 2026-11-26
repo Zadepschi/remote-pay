@@ -90,6 +90,132 @@
         "note": "More than payments — support in finding the right people."
       }
     }
+  },
+
+  "services": {
+    "heading": "Our",
+    "headingAccent": "Services",
+    "intro": "Everything you need to coordinate international payments",
+    "subtitle": "We help source international specialists, organize payments, and coordinate financial and administrative processes.",
+    "cards": {
+      "recruitment": {
+        "title": "Talent Acquisition",
+        "description": "We help find suitable specialists based on your company's objectives, requirements, and required skill sets."
+      },
+      "payments": {
+        "title": "International Payments",
+        "description": "We help arrange compensation transfers to remote specialists through available payment partners."
+      },
+      "documentation": {
+        "title": "Documentation Support",
+        "description": "We help organize contracts, invoices, contractor details, and confirmations of completed payments."
+      },
+      "settlements": {
+        "title": "Payment Coordination",
+        "description": "We coordinate amounts, currencies, fees, timelines, and transaction procedures."
+      },
+      "support": {
+        "title": "Administrative Support",
+        "description": "We coordinate communication between the employer, specialist, and payment partners."
+      }
+    }
+  },
+
+  "howItWorks": {
+    "heading": "How It",
+    "headingAccent": "Works",
+    "intro": "From your initial request to completed payments — just 3 simple steps.",
+    "stepLabel": "STEP",
+    "steps": {
+      "application": {
+        "title": "Submit a Request",
+        "description": "Tell us about your company, the number of specialists, and your payment requirements."
+      },
+      "terms": {
+        "title": "Agree on the Terms",
+        "description": "We'll define the service model, fees, currencies, timelines, and required documentation."
+      },
+      "payments": {
+        "title": "Arrange Payments",
+        "description": "We'll coordinate the payments and provide transaction confirmations."
+      }
+    }
+  },
+
+
+  "documents": {
+    "heading": "Documentation",
+    "headingAccent": "and Support",
+    "subtitle": "We help organize documentation and international payments. We coordinate administrative processes to make working with international specialists clearer and more structured.",
+    "heroNote": "Organized documentation. Clear payment processes.",
+    "visual": {
+      "paymentDetails": "PAYMENT\nDETAILS",
+      "support": "DOCUMENT SUPPORT"
+    },
+    "sectionEyebrow": "OUR SUPPORT",
+    "sectionTitle": "Everything Important, Under Control",
+    "sectionDescription": "We help organize the information needed to coordinate international business relationships.",
+    "cards": {
+      "cooperation": {
+        "title": "Cooperation Documentation",
+        "description": "We help organize the documentation required for working with international specialists."
+      },
+      "payments": {
+        "title": "Payment Information",
+        "description": "We help organize information about payment recipients, amounts, and international payment statuses."
+      },
+      "financial": {
+        "title": "Fees and Settlements",
+        "description": "We structure information about fees, terms, and parameters of upcoming settlements."
+      }
+    },
+    "bannerTitle": "Clear Communication Starts with Clarity",
+    "bannerDescription": "Essential information, documentation, and payment details — all within one organized process."
+  },
+
+  "contact": {
+    "heading": "Get in Touch with Our",
+    "headingAccent": "Team",
+    "subtitle": "Submit a request, and we'll help you find the right solution for international payments and your team.",
+    "success": {
+      "title": "Request Submitted",
+      "description": "Thank you for contacting us! We've received your request and will get back to you using the contact details provided.",
+      "note": "Thank you for your interest in Globeor."
+    },
+    "panel": {
+      "eyebrow": "GET IN TOUCH",
+      "title": "Our Contacts",
+      "description": "We'd be happy to answer your questions and discuss potential cooperation.",
+      "phone": "Phone",
+      "address": "Address",
+      "note": "Globeor provides solutions for international payments and administrative support for distributed teams."
+    },
+    "form": {
+      "eyebrow": "LET'S WORK TOGETHER",
+      "title": "Submit a Request",
+      "email": "Company email",
+      "name": "Your name",
+      "phone": "Phone number",
+      "role": "Your role",
+      "roles": {
+        "founder": "Founder / CEO",
+        "hr": "HR / People",
+        "finance": "Finance",
+        "operations": "Operations",
+        "recruiter": "Recruiter",
+        "other": "Other"
+      },
+      "contractors": "Number of specialists",
+      "consentBefore": "I agree to the",
+      "terms": "Terms of Use",
+      "consentBetween": "and acknowledge the",
+      "privacy": "Privacy Policy",
+      "sending": "Sending...",
+      "submit": "Send Message",
+      "whatsapp": "Message us on WhatsApp"
+    }
   }
+
+
 
 }

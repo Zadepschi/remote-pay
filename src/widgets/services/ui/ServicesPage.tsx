@@ -1,39 +1,38 @@
+
+import { useTranslation } from 'react-i18next';
 import styles from './ServicesPage.module.scss';
 
-const services = [
-  {
-    icon: '⌕',
-    title: 'Подбор специалистов',
-    description:
-      'Помогаем найти подходящих специалистов с учётом задач компании, требований и необходимых навыков.',
-  },
-  {
-    icon: '◎',
-    title: 'Международные выплаты',
-    description:
-      'Помогаем организовать перечисление вознаграждений удалённым специалистам через доступных платёжных партнёров.',
-  },
-  {
-    icon: '▤',
-    title: 'Документальное сопровождение',
-    description:
-      'Помогаем организовать договоры, инвойсы, сведения об исполнителях и подтверждения проведённых платежей.',
-  },
-  {
-    icon: '◈',
-    title: 'Организация расчётов',
-    description:
-      'Согласовываем суммы, валюты, комиссии, сроки и порядок проведения операций.',
-  },
-  {
-    icon: '✧',
-    title: 'Административная поддержка',
-    description:
-      'Координируем взаимодействие между работодателем, специалистом и платёжными партнёрами.',
-  },
-];
-
 export function ServicesPage() {
+  const { t } = useTranslation();
+
+  const services = [
+    {
+      icon: '⌕',
+      title: t('services.cards.recruitment.title'),
+      description: t('services.cards.recruitment.description'),
+    },
+    {
+      icon: '◎',
+      title: t('services.cards.payments.title'),
+      description: t('services.cards.payments.description'),
+    },
+    {
+      icon: '▤',
+      title: t('services.cards.documentation.title'),
+      description: t('services.cards.documentation.description'),
+    },
+    {
+      icon: '◈',
+      title: t('services.cards.settlements.title'),
+      description: t('services.cards.settlements.description'),
+    },
+    {
+      icon: '✧',
+      title: t('services.cards.support.title'),
+      description: t('services.cards.support.description'),
+    },
+  ];
+
   return (
     <section className={styles.wrapper}>
       <div className={styles.backgroundGlow} />
@@ -42,23 +41,22 @@ export function ServicesPage() {
       <div className={styles.content}>
         <div className={styles.heading}>
           <span className={styles.label}>
-            <span className={styles.labelDot} />
+            <span className={styles.labelDot} aria-hidden="true" />
             Global Employer of Record
           </span>
 
           <h1>
-            Наши <span>услуги</span>
+            {t('services.heading')} <span>{t('services.headingAccent')}</span>
           </h1>
 
           <div className={styles.line} />
 
           <p className={styles.intro}>
-            Всё необходимое для организации международных выплат
+            {t('services.intro')}
           </p>
 
           <p className={styles.subtitle}>
-            Помогаем находить зарубежных специалистов, организовывать выплаты
-            и координировать финансовые и административные процессы.
+            {t('services.subtitle')}
           </p>
         </div>
 

@@ -1,31 +1,31 @@
 
+import { useTranslation } from 'react-i18next';
 import styles from './HowItWorksPage.module.scss';
 
-const steps = [
-  {
-    number: '01',
-    icon: '▤',
-    title: 'Оставьте заявку',
-    description:
-      'Расскажите о компании, количестве специалистов и направлениях выплат.',
-  },
-  {
-    number: '02',
-    icon: '◈',
-    title: 'Согласуйте условия',
-    description:
-      'Определим модель работы, комиссии, валюты, сроки и необходимые документы.',
-  },
-  {
-    number: '03',
-    icon: '◎',
-    title: 'Организуем выплаты',
-    description:
-      'Проведём выплаты и предоставим подтверждение операций.',
-  },
-];
-
 export function HowItWorksPage() {
+  const { t } = useTranslation();
+
+  const steps = [
+    {
+      number: '01',
+      icon: '▤',
+      title: t('howItWorks.steps.application.title'),
+      description: t('howItWorks.steps.application.description'),
+    },
+    {
+      number: '02',
+      icon: '◈',
+      title: t('howItWorks.steps.terms.title'),
+      description: t('howItWorks.steps.terms.description'),
+    },
+    {
+      number: '03',
+      icon: '◎',
+      title: t('howItWorks.steps.payments.title'),
+      description: t('howItWorks.steps.payments.description'),
+    },
+  ];
+
   return (
     <section className={styles.wrapper}>
       <div className={styles.backgroundGlow} />
@@ -34,18 +34,18 @@ export function HowItWorksPage() {
       <div className={styles.content}>
         <div className={styles.heading}>
           <span className={styles.label}>
-            <span className={styles.labelDot} />
-           Global Employer of Record
+            <span className={styles.labelDot} aria-hidden="true" />
+            Global Employer of Record
           </span>
 
           <h1>
-            Как это <span>работает</span>
+            {t('howItWorks.heading')} <span>{t('howItWorks.headingAccent')}</span>
           </h1>
 
           <div className={styles.line} />
 
           <p className={styles.intro}>
-            От первой заявки до завершения выплат — всего 3 простых шага.
+            {t('howItWorks.intro')}
           </p>
         </div>
 
@@ -63,7 +63,7 @@ export function HowItWorksPage() {
               </div>
 
               <span className={styles.stepNumber}>
-                ШАГ {step.number}
+                {t('howItWorks.stepLabel')} {step.number}
               </span>
 
               <h2>{step.title}</h2>

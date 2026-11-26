@@ -1,13 +1,17 @@
 
 import { useForm, ValidationError } from '@formspree/react';
-import styles from './ContactPage.module.scss';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import PhoneInput from 'react-phone-number-input';
+
 import 'react-phone-number-input/style.css';
+import styles from './ContactPage.module.scss';
 
 const WHATSAPP_NUMBER = '12125550147';
 
 export default function ContactPage() {
+  const { t } = useTranslation();
+
   const [state, handleSubmit] = useForm('meagpayk');
   const [phone, setPhone] = useState<string | undefined>();
 
@@ -27,15 +31,19 @@ export default function ContactPage() {
       <main className={styles.wrapper}>
         <div className={styles.successCard}>
           <div className={styles.successIcon}>✓</div>
-          <span className={styles.label}>REMOTEPAY / THANK YOU</span>
-          <h1>Заявка отправлена</h1>
+
+          <span className={styles.label}>
+            GLOBAL EMPLOYER OF RECORD / THANK YOU
+          </span>
+
+          <h1>{t('contact.success.title')}</h1>
+
           <div className={styles.line} />
-          <p>
-            Спасибо за обращение! Мы получили вашу заявку
-            и свяжемся с вами по указанным контактным данным.
-          </p>
+
+          <p>{t('contact.success.description')}</p>
+
           <span className={styles.successNote}>
-            Благодарим за интерес к RemotePay.
+            {t('contact.success.note')}
           </span>
         </div>
       </main>
@@ -46,31 +54,33 @@ export default function ContactPage() {
     <main className={styles.wrapper}>
       <div className={styles.content}>
         <header className={styles.heading}>
-  <div className={styles.heroLabel}>
-    <span className={styles.labelDot} aria-hidden="true" />
-    <span className={styles.label}>
-      Global Employer of Record
-    </span>
-  </div>
+          <div className={styles.heroLabel}>
+            <span className={styles.labelDot} aria-hidden="true" />
+            <span className={styles.label}>
+              Global Employer of Record
+            </span>
+          </div>
+
           <h1>
-            Свяжитесь с нашей  <span>командой</span> 
+            {t('contact.heading')}{' '}
+            <span>{t('contact.headingAccent')}</span>
           </h1>
+
           <div className={styles.line} />
-          <p>
-            Оставьте заявку, и мы поможем подобрать подходящее
-            решение для международных выплат и вашей команды.
-          </p>
+
+          <p>{t('contact.subtitle')}</p>
         </header>
 
         <div className={styles.contactLayout}>
           <aside className={styles.contactPanel}>
             <div className={styles.panelHeading}>
-              <span className={styles.label}>GET IN TOUCH</span>
-              <h2>Наши контакты</h2>
-              <p>
-                Будем рады ответить на ваши вопросы и обсудить
-                возможное сотрудничество.
-              </p>
+              <span className={styles.label}>
+                {t('contact.panel.eyebrow')}
+              </span>
+
+              <h2>{t('contact.panel.title')}</h2>
+
+              <p>{t('contact.panel.description')}</p>
             </div>
 
             <div className={styles.contactList}>
@@ -79,8 +89,10 @@ export default function ContactPage() {
                 href="mailto:contact@shahinpay.example"
               >
                 <span className={styles.contactIcon}>✉</span>
+
                 <span className={styles.contactText}>
                   <span className={styles.contactLabel}>Email</span>
+
                   <span className={styles.contactValue}>
                     contact@shahinpay.example
                   </span>
@@ -92,8 +104,12 @@ export default function ContactPage() {
                 href="tel:+12125550147"
               >
                 <span className={styles.contactIcon}>☎</span>
+
                 <span className={styles.contactText}>
-                  <span className={styles.contactLabel}>Телефон</span>
+                  <span className={styles.contactLabel}>
+                    {t('contact.panel.phone')}
+                  </span>
+
                   <span className={styles.contactValue}>
                     +1 212-555-0147
                   </span>
@@ -102,8 +118,12 @@ export default function ContactPage() {
 
               <div className={styles.contactItem}>
                 <span className={styles.contactIcon}>⌖</span>
+
                 <span className={styles.contactText}>
-                  <span className={styles.contactLabel}>Адрес</span>
+                  <span className={styles.contactLabel}>
+                    {t('contact.panel.address')}
+                  </span>
+
                   <span className={styles.contactValue}>
                     123 Example Street,
                     <br />
@@ -115,24 +135,27 @@ export default function ContactPage() {
 
             <div className={styles.contactNote}>
               <span className={styles.noteLine} />
-              <p>
-                RemotePay — решения для организации международных
-                выплат и поддержки распределённых команд.
-              </p>
+
+              <p>{t('contact.panel.note')}</p>
             </div>
           </aside>
 
           <section className={styles.formPanel} id="contact-form">
             <div className={styles.formHeading}>
-              <span className={styles.label}>LET'S WORK TOGETHER</span>
-              <h2>Оставить заявку</h2>
-            
+              <span className={styles.label}>
+                {t('contact.form.eyebrow')}
+              </span>
+
+              <h2>{t('contact.form.title')}</h2>
             </div>
 
             <form className={styles.form} onSubmit={handleSubmit}>
               {/* Защита от спама */}
               <div className={styles.honeypot} aria-hidden="true">
-                <label htmlFor="_gotcha">Leave this field empty</label>
+                <label htmlFor="_gotcha">
+                  Leave this field empty
+                </label>
+
                 <input
                   id="_gotcha"
                   type="text"
@@ -148,11 +171,12 @@ export default function ContactPage() {
                   id="email"
                   name="email"
                   type="email"
-                  placeholder="Company email"
+                  placeholder={t('contact.form.email')}
                   autoComplete="email"
-                  aria-label="Company email"
+                  aria-label={t('contact.form.email')}
                   required
                 />
+
                 <ValidationError
                   field="email"
                   errors={state.errors}
@@ -165,11 +189,12 @@ export default function ContactPage() {
                   id="contact_name"
                   name="contact_name"
                   type="text"
-                  placeholder="Name"
+                  placeholder={t('contact.form.name')}
                   autoComplete="name"
-                  aria-label="Name"
+                  aria-label={t('contact.form.name')}
                   required
                 />
+
                 <ValidationError
                   field="contact_name"
                   errors={state.errors}
@@ -184,9 +209,10 @@ export default function ContactPage() {
                   defaultCountry="US"
                   value={phone}
                   onChange={setPhone}
-                  placeholder="999 999 9999"
-                  aria-label="Phone number"
+                  placeholder={t('contact.form.phone')}
+                  aria-label={t('contact.form.phone')}
                 />
+
                 <input
                   type="hidden"
                   name="phone"
@@ -200,19 +226,38 @@ export default function ContactPage() {
                   id="role"
                   name="role"
                   defaultValue=""
-                  aria-label="Your role"
+                  aria-label={t('contact.form.role')}
                   required
                 >
                   <option value="" disabled>
-                    Your role
+                    {t('contact.form.role')}
                   </option>
-                  <option value="Founder / CEO">Founder / CEO</option>
-                  <option value="HR / People">HR / People</option>
-                  <option value="Finance">Finance</option>
-                  <option value="Operations">Operations</option>
-                  <option value="Recruiter">Recruiter</option>
-                  <option value="Other">Other</option>
+
+                  <option value="Founder / CEO">
+                    {t('contact.form.roles.founder')}
+                  </option>
+
+                  <option value="HR / People">
+                    {t('contact.form.roles.hr')}
+                  </option>
+
+                  <option value="Finance">
+                    {t('contact.form.roles.finance')}
+                  </option>
+
+                  <option value="Operations">
+                    {t('contact.form.roles.operations')}
+                  </option>
+
+                  <option value="Recruiter">
+                    {t('contact.form.roles.recruiter')}
+                  </option>
+
+                  <option value="Other">
+                    {t('contact.form.roles.other')}
+                  </option>
                 </select>
+
                 <ValidationError
                   field="role"
                   errors={state.errors}
@@ -225,12 +270,13 @@ export default function ContactPage() {
                   id="contractors"
                   name="contractors"
                   defaultValue=""
-                  aria-label="Number of contractors"
+                  aria-label={t('contact.form.contractors')}
                   required
                 >
                   <option value="" disabled>
-                    Number of contractors
+                    {t('contact.form.contractors')}
                   </option>
+
                   <option value="1-5">1–5</option>
                   <option value="6-20">6–20</option>
                   <option value="21-50">21–50</option>
@@ -238,6 +284,7 @@ export default function ContactPage() {
                   <option value="101-250">101–250</option>
                   <option value="250+">250+</option>
                 </select>
+
                 <ValidationError
                   field="contractors"
                   errors={state.errors}
@@ -253,19 +300,23 @@ export default function ContactPage() {
                     value="yes"
                     required
                   />
+
                   <span className={styles.customCheckbox} />
+
                   <span>
-                    I agree to the{' '}
+                    {t('contact.form.consentBefore')}{' '}
+
                     <a href="/terms-of-use" target="_blank">
-                      Terms of Use
+                      {t('contact.form.terms')}
                     </a>{' '}
-                    and acknowledge the{' '}
+
+                    {t('contact.form.consentBetween')}{' '}
+
                     <a href="/privacy-policy" target="_blank">
-                      Privacy Policy
+                      {t('contact.form.privacy')}
                     </a>.
                   </span>
                 </label>
-
 
                 <ValidationError
                   field="privacy_consent"
@@ -278,8 +329,9 @@ export default function ContactPage() {
                   disabled={state.submitting || !phone}
                 >
                   {state.submitting
-                    ? 'Sending...'
-                    : 'Отправить сообщение'}
+                    ? t('contact.form.sending')
+                    : t('contact.form.submit')}
+
                   <span aria-hidden="true">↗</span>
                 </button>
 
@@ -295,7 +347,7 @@ export default function ContactPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Написать нам в WhatsApp ↗
+                {t('contact.form.whatsapp')} ↗
               </a>
             </div>
           </section>
