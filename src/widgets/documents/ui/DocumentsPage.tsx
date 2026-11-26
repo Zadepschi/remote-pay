@@ -1,30 +1,31 @@
 
 import { useTranslation } from 'react-i18next';
 import styles from './DocumentsPage.module.scss';
+import { FileText, ArrowUpRight, Wallet } from 'lucide-react';
 
 export function DocumentsPage() {
   const { t } = useTranslation();
 
-  const documentItems = [
-    {
-      icon: '▤',
-      title: t('documents.cards.cooperation.title'),
-      description: t('documents.cards.cooperation.description'),
-      tag: 'DOCUMENTATION',
-    },
-    {
-      icon: '↗',
-      title: t('documents.cards.payments.title'),
-      description: t('documents.cards.payments.description'),
-      tag: 'PAYMENT RECORDS',
-    },
-    {
-      icon: '◇',
-      title: t('documents.cards.financial.title'),
-      description: t('documents.cards.financial.description'),
-      tag: 'FINANCIAL DETAILS',
-    },
-  ];
+const documentItems = [
+  {
+    icon: <FileText />,
+    title: t('documents.cards.cooperation.title'),
+    description: t('documents.cards.cooperation.description'),
+    tag: 'DOCUMENTATION',
+  },
+  {
+    icon: <ArrowUpRight />,
+    title: t('documents.cards.payments.title'),
+    description: t('documents.cards.payments.description'),
+    tag: 'PAYMENT RECORDS',
+  },
+  {
+    icon: <Wallet />,
+    title: t('documents.cards.financial.title'),
+    description: t('documents.cards.financial.description'),
+    tag: 'FINANCIAL DETAILS',
+  },
+];
 
   return (
     <section className={styles.wrapper}>

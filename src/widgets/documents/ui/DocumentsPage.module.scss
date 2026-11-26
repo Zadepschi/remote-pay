@@ -427,7 +427,13 @@
   border: 1px solid rgba(229, 189, 112, 0.35);
   border-radius: 6px;
   color: $color-gold-champagne;
-  font-size: 19px;
+
+  svg {
+    width: 19px;
+    height: 19px;
+    stroke: currentColor;
+    stroke-width: 1.7;
+  }
 }
 
 .cardNumber {
