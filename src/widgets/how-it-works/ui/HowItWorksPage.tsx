@@ -35,7 +35,7 @@ export function HowItWorksPage() {
         <div className={styles.heading}>
           <span className={styles.label}>
             <span className={styles.labelDot} />
-            Employer of Record
+           Global Employer of Record
           </span>
 
           <h1>

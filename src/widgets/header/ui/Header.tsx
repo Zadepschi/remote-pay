@@ -1,19 +1,37 @@
 
 import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import styles from './Header.module.scss';
 
 const navigation = [
-  { label: 'Наши услуги', href: '/services' },
-  { label: 'Почему мы', href: '/benefits' },
-  { label: 'Как это работает', href: '/how-it-works' },
-  { label: 'Документы и сопровождение', href: '/documents' },
-  { label: 'Контакты', href: '/contact' },
+  { key: 'nav.services', href: '/services' },
+  { key: 'nav.benefits', href: '/benefits' },
+  { key: 'nav.howItWorks', href: '/how-it-works' },
+  { key: 'nav.documents', href: '/documents' },
+  { key: 'nav.contacts', href: '/contact' },
 ];
 
 export function Header() {
+  const { t, i18n } = useTranslation();
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const currentLanguage = (
+    i18n.resolvedLanguage || i18n.language
+  ).startsWith('en')
+    ? 'en'
+    : 'ru';
+
+  const nextLanguage = currentLanguage === 'ru' ? 'en' : 'ru';
+
+  const changeLanguage = () => {
+    if (nextLanguage === currentLanguage) return;
+
+    i18n.changeLanguage(nextLanguage);
+    localStorage.setItem('language', nextLanguage);
+  };
 
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -37,13 +55,25 @@ export function Header() {
     };
   }, [isMenuOpen]);
 
+  const languageSwitcher = (
+    <button
+      type="button"
+      className={styles.languageSwitcher}
+      onClick={changeLanguage}
+      aria-label={`Switch language to ${nextLanguage.toUpperCase()}`}
+      title={`Switch to ${nextLanguage.toUpperCase()}`}
+    >
+      {nextLanguage.toUpperCase()}
+    </button>
+  );
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
         <Link
           className={styles.logo}
           to="/"
-          aria-label="Globeor — главная страница"
+          aria-label="Globeor"
           onClick={closeMenu}
         >
           <img
@@ -53,7 +83,10 @@ export function Header() {
           />
         </Link>
 
-        <nav className={styles.navigation} aria-label="Основная навигация">
+        <nav
+          className={styles.navigation}
+          aria-label={t('nav.main')}
+        >
           {navigation.map((item) => (
             <NavLink
               key={item.href}
@@ -62,17 +95,21 @@ export function Header() {
                 isActive ? styles.active : ''
               }
             >
-              {item.label}
+              {t(item.key)}
             </NavLink>
           ))}
         </nav>
+
+        {languageSwitcher}
 
         <button
           className={`${styles.menuButton} ${
             isMenuOpen ? styles.menuButtonOpen : ''
           }`}
           type="button"
-          aria-label={isMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
+          aria-label={
+            isMenuOpen ? t('nav.closeMenu') : t('nav.openMenu')
+          }
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
           onClick={() => setIsMenuOpen((open) => !open)}
@@ -93,7 +130,7 @@ export function Header() {
       >
         <nav
           className={styles.mobileNavigation}
-          aria-label="Мобильная навигация"
+          aria-label={t('nav.mobile')}
         >
           {navigation.map((item) => (
             <NavLink
@@ -105,7 +142,9 @@ export function Header() {
                 isActive ? styles.active : ''
               }
             >
-              <span className={styles.menuLabel}>{item.label}</span>
+              <span className={styles.menuLabel}>
+                {t(item.key)}
+              </span>
             </NavLink>
           ))}
 
@@ -115,7 +154,7 @@ export function Header() {
             onClick={closeMenu}
             tabIndex={isMenuOpen ? 0 : -1}
           >
-            Запросить консультацию
+            {t('nav.consultation')}
           </Link>
         </nav>
       </div>

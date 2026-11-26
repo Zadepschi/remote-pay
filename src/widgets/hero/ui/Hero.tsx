@@ -1,78 +1,93 @@
 
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 import styles from './Hero.module.scss';
 import { HeroGlobe } from '../../hero-globe/ui/HeroGlobe';
-import { Link } from 'react-router-dom';
 
 export function Hero() {
+  const { t } = useTranslation();
+
   return (
     <section className={styles.hero}>
       <div className={styles.container}>
+
         <div className={styles.content}>
-          <div className={styles.eyebrow}>
-            <span className={styles.eyebrowLine} />
-            Международное сотрудничество
+
+          {/* Brand positioning */}
+          <div className={styles.heroEyebrow}>
+            <span className={styles.goldShimmer}>GLOB</span>
+            <span className={styles.wordEnd}>al</span>
+
+            <span className={styles.goldShimmer}>E</span>
+            <span className={styles.wordEnd}>mployer</span>
+
+            <span className={styles.goldShimmer}>O</span>
+            <span className={styles.wordEnd}>f</span>
+
+            <span className={styles.goldShimmer}>R</span>
+            <span>ecord</span>
           </div>
 
+          {/* Main heading */}
           <h1 className={styles.title}>
-            Подбор специалистов и международные выплаты
-            <span> для вашего бизнеса.</span>
+            {t('hero.title')}
+            <span>{t('hero.titleAccent')}</span>
           </h1>
 
-          <p className={styles.description}>
-            Помогаем компаниям находить квалифицированных
-            специалистов, организовывать сотрудничество
-            с международными командами и проводить выплаты
-            зарубежным подрядчикам.
-          </p>
+          {/* Main benefit */}
+          <div className={styles.heroHighlight}>
+            {t('hero.highlight')}
+          </div>
 
-        <div className={styles.services}>
-  <div className={styles.serviceItem}>
-    <span
-      className={styles.serviceLine}
-      aria-hidden="true"
-    />
-    <div>
-      <strong>Подбор персонала</strong>
-      <p>
-        Готовая база кандидатов и индивидуальный
-        поиск специалистов по запросу работодателя.
-      </p>
-    </div>
-  </div>
+          {/* Services */}
+          <div className={styles.services}>
 
-  <div className={styles.serviceItem}>
-    <span
-      className={styles.serviceLine}
-      aria-hidden="true"
-    />
-    <div>
-      <strong>Международные выплаты</strong>
-      <p>
-        Организация расчётов с международными
-        подрядчиками и административное сопровождение.
-      </p>
-    </div>
-  </div>
-</div>
+            <div className={styles.serviceItem}>
+              <span
+                className={styles.serviceLine}
+                aria-hidden="true"
+              />
+              <div>
+                <strong>{t('hero.service1.title')}</strong>
+                <p>{t('hero.service1.description')}</p>
+              </div>
+            </div>
 
+            <div className={styles.serviceItem}>
+              <span
+                className={styles.serviceLine}
+                aria-hidden="true"
+              />
+              <div>
+                <strong>{t('hero.service2.title')}</strong>
+                <p>{t('hero.service2.description')}</p>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Action buttons */}
           <div className={styles.actions}>
             <Link
               to="/contact#contact-form"
               className={styles.primaryButton}
             >
-              Запросить консультацию
+              {t('hero.consultation')}
             </Link>
 
             <Link
               to="/services"
               className={styles.secondaryButton}
             >
-              Наши услуги
+              {t('hero.ourServices')}
               <span aria-hidden="true">→</span>
             </Link>
           </div>
+
         </div>
 
+        {/* Globe and information cards */}
         <div className={styles.visual}>
           <div className={styles.visualGlow} />
 
@@ -80,18 +95,19 @@ export function Hero() {
 
           <div className={`${styles.infoCard} ${styles.topCard}`}>
             <div>
-              <span>Кадровые решения</span>
-              <strong>Поиск и подбор специалистов</strong>
+              <span>{t('hero.card1.label')}</span>
+              <strong>{t('hero.card1.title')}</strong>
             </div>
           </div>
 
           <div className={`${styles.infoCard} ${styles.bottomCard}`}>
             <div>
-              <span>Международные расчёты</span>
-              <strong>Сопровождение выплат</strong>
+              <span>{t('hero.card2.label')}</span>
+              <strong>{t('hero.card2.title')}</strong>
             </div>
           </div>
         </div>
+
       </div>
 
       <div className={styles.bottomDecoration} />

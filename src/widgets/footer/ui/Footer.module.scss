@@ -4,7 +4,6 @@
 
 .footer {
   padding: $spacing-3xl 0 $spacing-lg;
-
   background: $color-bg-secondary;
   border-top: 1px solid $color-border;
 }
@@ -15,32 +14,41 @@
 
 .main {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 1.7fr 1fr 1fr;
   gap: $spacing-2xl;
-
   padding-bottom: $spacing-2xl;
 }
 
 .brand {
-  max-width: 340px;
+  max-width: 360px;
 }
 
 .logo {
-  display: inline-block;
-
-  color: $color-text-primary;
-  font-size: $font-size-2xl;
-  font-weight: $font-weight-bold;
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
 
-  span {
-    color: $color-primary-light;
+  img {
+    display: block;
+    width: 175px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 }
 
-.description {
-  margin-top: $spacing-md;
+.brandTagline {
+  margin-top: $spacing-sm;
+  color: #C49A50;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
 
+.description {
+  max-width: 330px;
+  margin-top: $spacing-md;
   color: $color-text-secondary;
   font-size: $font-size-sm;
   line-height: 1.7;
@@ -54,7 +62,6 @@
 
   h3 {
     margin-bottom: $spacing-xs;
-
     color: $color-text-primary;
     font-size: $font-size-base;
     font-weight: $font-weight-semibold;
@@ -71,6 +78,10 @@
       color: $color-primary-light;
     }
   }
+
+  .contactHeading {
+    margin-top: $spacing-lg;
+  }
 }
 
 .bottom {
@@ -78,7 +89,6 @@
 
   gap: $spacing-md;
   padding-top: $spacing-lg;
-
   border-top: 1px solid $color-border;
 
   p,
@@ -89,11 +99,10 @@
 
   a {
     text-decoration: none;
-
     @include transition(color);
 
     &:hover {
-      color: $color-text-secondary;
+      color: $color-primary-light;
     }
   }
 }

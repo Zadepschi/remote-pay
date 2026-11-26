@@ -46,9 +46,12 @@ export default function ContactPage() {
     <main className={styles.wrapper}>
       <div className={styles.content}>
         <header className={styles.heading}>
-          <span className={styles.label}>
-            EMPLOYER OF RECORD / CONTACTS
-          </span>
+  <div className={styles.heroLabel}>
+    <span className={styles.labelDot} aria-hidden="true" />
+    <span className={styles.label}>
+      Global Employer of Record
+    </span>
+  </div>
           <h1>
             Свяжитесь с нашей  <span>командой</span> 
           </h1>

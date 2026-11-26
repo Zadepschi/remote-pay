@@ -31,7 +31,10 @@ export function DocumentsPage() {
       <div className={styles.content}>
         <div className={styles.hero}>
           <div className={styles.heroText}>
-            <span className={styles.label}>Employer of Record / DOCUMENTATION</span>
+  <div className={styles.heroLabel}>
+    <span className={styles.labelDot} aria-hidden="true" />
+    <span className={styles.label}>Global Employer of Record</span>
+  </div>
 
             <h1>
               Документы

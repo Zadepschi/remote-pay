@@ -62,7 +62,7 @@ export function BenefitsPage() {
         <header className={styles.heading}>
           <span className={styles.label}>
             <span className={styles.labelDot} />
-            Employer of Record
+            Global Employer of Record
           </span>
 
           <h1>
@@ -113,7 +113,7 @@ export function BenefitsPage() {
         </div>
 
         <div className={styles.bottomText}>
-          <span>Employer of Record</span>
+          <span>Global Employer of Record</span>
           <p>Сложные процессы. Более понятная организация.</p>
         </div>
       </div>

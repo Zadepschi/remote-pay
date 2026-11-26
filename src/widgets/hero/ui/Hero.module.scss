@@ -69,14 +69,15 @@
   }
 }
 
+
 .title {
   margin: 0;
 
   color: $color-text-primary;
   font-family: $font-family-brand;
-  font-size: clamp(30px, 3.5vw, 50px);
+  font-size: clamp(25px, 2.5vw, 34px);
   font-weight: 600;
-  line-height: 1.13;
+  line-height: 1.16;
   letter-spacing: -0.045em;
 
   span {
@@ -168,7 +169,7 @@
     margin: 4px 0 0;
 
     color: $color-text-secondary;
-    font-size: 15px;
+    font-size: 17px;
     line-height: 1.65;
   }
 }
@@ -584,7 +585,7 @@
   }
 
   p {
-    font-size: 12px;
+    font-size: 15px;
     line-height: 1.6;
   }
 }
@@ -607,9 +608,6 @@
     font-size: 10px;
   }
 
-  .title {
-    font-size: clamp(34px, 9vw, 44px);
-  }
 
   .description {
     margin-top: 20px;
@@ -683,5 +681,100 @@
   .secondaryButton,
   .infoCard {
     transition: none;
+  }
+}
+
+
+/* Позиционирование компании */
+
+.heroEyebrow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  margin-bottom: 16px;
+
+  color: #f4eee3;
+  font-family: $font-family-brand;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+
+  .wordEnd {
+    margin-right: 0.35em;
+  }
+
+  .goldShimmer {
+    color: #C49A50;
+  }
+}
+
+@include mobile {
+  .heroEyebrow {
+    margin-bottom: 13px;
+    font-size: 11px;
+  }
+}
+
+/* Основной заголовок */
+.title {
+  max-width: 760px;
+  margin: 0;
+
+  color: $color-text-primary;
+  font-family: $font-family-brand;
+  font-size: clamp(30px, 2.5vw, 40px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+
+  span {
+    display: inline;
+    color: transparent;
+    background: $gradient-gold;
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+}
+
+/* Акцент на экономии */
+.heroHighlight {
+  display: inline-flex;
+  align-items: center;
+
+  margin-top: 22px;
+  padding-left: 14px;
+
+  border-left: 2px solid $color-gold-champagne;
+
+  color: $color-gold-champagne;
+  font-family: $font-family-brand;
+  font-size: clamp(17px, 1.5vw, 20px);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* Мобильная версия */
+@include mobile {
+   .heroEyebrow {
+    margin-bottom: 13px;
+    font-size: 11px;
+    letter-spacing: 0.09em;
+  }
+
+  .title {
+    font-size: clamp(27px, 7vw, 34px);
+    line-height: 1.2;
+  }
+
+  .heroHighlight {
+    margin-top: 18px;
+    font-size: 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroEyebrow .goldShimmer {
+    animation: none;
   }
 }

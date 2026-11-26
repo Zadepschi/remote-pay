@@ -1,0 +1,54 @@
+{
+  "nav": {
+    "services": "Our Services",
+    "benefits": "Why Choose Us",
+    "howItWorks": "How It Works",
+    "documents": "Documents & Support",
+    "contacts": "Contacts"
+  },
+
+
+  "hero": {
+    "title": "Talent acquisition and international payments",
+    "titleAccent": " for your business.",
+    "highlight": "Save Up to 65% on Staffing Costs",
+    "service1": {
+      "title": "Recruitment",
+      "description": "Access to an established candidate database and tailored talent searches based on employer requirements."
+    },
+    "service2": {
+      "title": "International Payments",
+      "description": "Payment coordination for international contractors and comprehensive administrative support."
+    },
+    "consultation": "Request a Consultation",
+    "ourServices": "Our Services",
+    "card1": {
+      "label": "HR Solutions",
+      "title": "Talent Search and Recruitment"
+    },
+    "card2": {
+      "label": "International Payments",
+      "title": "Payment Administration"
+    }
+  },
+
+  "footer": {
+    "tagline": "Global Employer of Record",
+    "description": "Talent acquisition, international payments and administrative support for businesses worldwide.",
+    "navigationTitle": "Navigation",
+    "home": "Home",
+    "services": "Services",
+    "benefits": "Why Choose Us",
+    "howItWorks": "How It Works",
+    "documents": "Documentation",
+    "contacts": "Contact",
+    "servicesTitle": "Our Services",
+    "recruitment": "Talent Acquisition",
+    "internationalPayments": "International Payments",
+    "contactTitle": "Get in Touch",
+    "requestConsultation": "Request a Consultation",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy"
+  }
+
+}

@@ -325,3 +325,75 @@
     transition: none;
   }
 }
+
+
+
+.languageSwitcher {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+  width: 50px;
+  height: 32px;
+  padding: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+
+  background: linear-gradient(
+    115deg,
+    #b88738 0%,
+    #f8e3a8 28%,
+    #d6ad60 52%,
+    #fff0c5 75%,
+    #bd9146 100%
+  );
+
+  background-size: 200% 100%;
+  animation: goldShimmer 4s ease-in-out infinite;
+
+  color: #263044;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 8px rgba(229, 189, 112, 0.4),
+    0 0 16px rgba(229, 189, 112, 0.15),
+    inset 0 1px 2px rgba(255, 255, 255, 0.65);
+
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #f8dda0;
+    outline-offset: 3px;
+  }
+}
+
+@keyframes goldShimmer {
+  0%, 100% {
+    background-position: 100% 0;
+  }
+
+  50% {
+    background-position: 0% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .languageSwitcher {
+    animation: none;
+    transition: none;
+  }
+}

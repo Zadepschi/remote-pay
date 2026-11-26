@@ -74,3 +74,44 @@ svg {
 #root {
   min-height: 100vh;
 }
+
+
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(
+    180deg,
+    #8f6b32,
+    #c49a50,
+    #f8e7a8,
+    #d6ae68,
+    #9b7438,
+    #f8e7a8,
+    #c49a50
+  );
+  background-size: 100% 300%;
+  animation: goldScrollShimmer 3s linear infinite;
+}
+
+@keyframes goldScrollShimmer {
+  0% {
+    background-position: 0 0%;
+  }
+  100% {
+    background-position: 0 300%;
+  }
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #c49a50 #111111;
+}

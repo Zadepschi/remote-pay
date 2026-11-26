@@ -1,58 +1,89 @@
 
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import styles from './Footer.module.scss';
 
-const navigationLinks = [
-  { label: 'Возможности', href: '#features' },
-  { label: 'Как это работает', href: '#how-it-works' },
-  { label: 'О сервисе', href: '#about' },
-];
-
 export function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.main}>
           <div className={styles.brand}>
-            <a className={styles.logo} href="/">
-              Remote<span>Pay</span>
-            </a>
+            <Link to="/" className={styles.logo}>
+              <img src="/logoGlobe.png" alt="Globeor" />
+            </Link>
+
+            <div className={styles.brandTagline}>
+              {t('footer.tagline')}
+            </div>
 
             <p className={styles.description}>
-              Удобные и надёжные выплаты для удалённых
-              команд по всему миру.
+              {t('footer.description')}
             </p>
           </div>
 
+          {/* Навигация */}
           <div className={styles.linksColumn}>
-            <h3>Навигация</h3>
+            <h3>{t('footer.navigationTitle')}</h3>
 
-            {navigationLinks.map((item) => (
-              <a key={item.href} href={item.href}>
-                {item.label}
-              </a>
-            ))}
+            <Link to="/">
+              {t('footer.home')}
+            </Link>
+
+            <Link to="/services">
+              {t('footer.services')}
+            </Link>
+
+            <Link to="/benefits">
+              {t('footer.benefits')}
+            </Link>
+
+            <Link to="/how-it-works">
+              {t('footer.howItWorks')}
+            </Link>
+
+            <Link to="/documents">
+              {t('footer.documents')}
+            </Link>
+
+            <Link to="/contact">
+              {t('footer.contacts')}
+            </Link>
           </div>
 
+          {/* Услуги и контакты */}
           <div className={styles.linksColumn}>
-            <h3>Контакты</h3>
+            <h3>{t('footer.servicesTitle')}</h3>
 
-            <a href="mailto:hello@remotepay.com">
-              hello@remotepay.com
-            </a>
+            <Link to="/services">
+              {t('footer.recruitment')}
+            </Link>
 
-            <a href="#support">Поддержка</a>
+            <Link to="/services">
+              {t('footer.internationalPayments')}
+            </Link>
+
+            <h3 className={styles.contactHeading}>
+              {t('footer.contactTitle')}
+            </h3>
+
+            <Link to="/contact">
+              {t('footer.requestConsultation')}
+            </Link>
           </div>
         </div>
 
         <div className={styles.bottom}>
           <p>
-            © {new Date().getFullYear()} Remote Pay.
-            Все права защищены.
+            © {new Date().getFullYear()} Globeor.
+            {' '}{t('footer.rights')}
           </p>
 
-          <a href="#privacy">
-            Политика конфиденциальности
-          </a>
+          <Link to="/privacy">
+            {t('footer.privacy')}
+          </Link>
         </div>
       </div>
     </footer>

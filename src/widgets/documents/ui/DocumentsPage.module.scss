@@ -53,7 +53,44 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
+.heroLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
 
+.labelDot {
+  display: inline-block;
+  flex: 0 0 7px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $color-gold-highlight;
+  box-shadow: 0 0 10px rgba(245, 213, 141, 0.8);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.label {
+  display: inline-block;
+  margin: 0;
+  color: $color-gold-champagne;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(245, 213, 141, 0.8);
+  }
+
+  50% {
+    opacity: 0.45;
+    box-shadow: 0 0 3px rgba(245, 213, 141, 0.3);
+  }
+}
 .heroText h1 {
   margin: 0;
   color: $color-text-primary;
