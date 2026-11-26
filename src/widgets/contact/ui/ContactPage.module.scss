@@ -791,7 +791,6 @@
   }
 }
 
-
 .whatsappLink {
   margin-top: 14px;
 
@@ -805,22 +804,18 @@
     font-weight: 500;
     text-decoration: none;
 
-    transition:
-      color 0.25s ease,
-      opacity 0.25s ease;
+    transition: color 0.25s ease;
 
-    cursor: pointer;
-
-    span {
-      display: inline-block;
-      font-size: 16px;
+    svg {
+      color: $color-gold-champagne;
+      stroke: currentColor;
       transition: transform 0.25s ease;
     }
 
     &:hover {
       color: $color-gold-highlight;
 
-      span {
+      svg {
         transform: translate(3px, -3px);
       }
     }

@@ -3,6 +3,7 @@ import { useForm, ValidationError } from '@formspree/react';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import PhoneInput from 'react-phone-number-input';
+import { Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
 
 import 'react-phone-number-input/style.css';
 import styles from './ContactPage.module.scss';
@@ -88,7 +89,9 @@ export default function ContactPage() {
                 className={styles.contactItem}
                 href="mailto:contact@shahinpay.example"
               >
-                <span className={styles.contactIcon}>✉</span>
+                <span className={styles.contactIcon}>
+  <Mail size={22} strokeWidth={1.7} />
+</span>
 
                 <span className={styles.contactText}>
                   <span className={styles.contactLabel}>Email</span>
@@ -332,7 +335,7 @@ export default function ContactPage() {
                     ? t('contact.form.sending')
                     : t('contact.form.submit')}
 
-                  <span aria-hidden="true">↗</span>
+                  <ArrowUpRight size={19} strokeWidth={2} />
                 </button>
 
                 {state.errors && (
@@ -342,14 +345,15 @@ export default function ContactPage() {
             </form>
 
             <div className={styles.whatsappLink}>
-              <a
-                href={`https://wa.me/${WHATSAPP_NUMBER}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {t('contact.form.whatsapp')} ↗
-              </a>
-            </div>
+  <a
+    href={`https://wa.me/${WHATSAPP_NUMBER}`}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    {t('contact.form.whatsapp')}
+    <ArrowUpRight size={17} strokeWidth={2} aria-hidden="true" />
+  </a>
+</div>
           </section>
         </div>
       </div>
