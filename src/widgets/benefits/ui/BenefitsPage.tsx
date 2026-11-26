@@ -1,58 +1,55 @@
 
+import { useTranslation } from 'react-i18next';
 import styles from './BenefitsPage.module.scss';
 
-const benefits = [
-  {
-    icon: '☕',
-    title: 'Меньше рутины',
-    description:
-      'Помогаем координировать этапы расчётов и сбора документов.',
-    note: 'Больше времени на действительно важное.',
-    variant: 'featured',
-  },
-  {
-    icon: '◎',
-    title: 'Единый контакт',
-    description:
-      'Вы взаимодействуете с нашей командой по организационным вопросам согласованной услуги.',
-    note: 'Не нужно искать крайнего в переписке.',
-    variant: 'regular',
-  },
-  {
-    icon: '▤',
-    title: 'Понятная документация',
-    description:
-      'Помогаем систематизировать документы и информацию о международных платежах.',
-    note: 'Документы любят порядок. Мы тоже.',
-    variant: 'regular',
-  },
-  {
-    icon: '◇',
-    title: 'Прозрачные условия',
-    description:
-      'Заранее согласовываем комиссию, валюту и возможные расходы.',
-    note: 'Никаких сюрпризов в мелком шрифте.',
-    variant: 'regular',
-  },
-  {
-    icon: '◎',
-    title: 'Международная география',
-    description:
-      'Рассматриваем выплаты в разные страны с учётом доступности платёжных решений.',
-    note: 'Границы есть у карт. У задач бизнеса — реже.',
-    variant: 'regular',
-  },
-  {
-    icon: '✧',
-    title: 'Дополнительный подбор',
-    description:
-      'При необходимости помогаем найти специалистов под требования и бюджет компании.',
-    note: 'Не только переводы, но и поиск нужных людей.',
-    variant: 'wide',
-  },
-];
-
 export function BenefitsPage() {
+  const { t } = useTranslation();
+
+  const benefits = [
+    {
+      icon: '◷',
+      title: t('benefits.cards.routine.title'),
+      description: t('benefits.cards.routine.description'),
+      note: t('benefits.cards.routine.note'),
+      variant: 'featured',
+    },
+    {
+      icon: '◎',
+      title: t('benefits.cards.contact.title'),
+      description: t('benefits.cards.contact.description'),
+      note: t('benefits.cards.contact.note'),
+      variant: 'regular',
+    },
+    {
+      icon: '▤',
+      title: t('benefits.cards.documents.title'),
+      description: t('benefits.cards.documents.description'),
+      note: t('benefits.cards.documents.note'),
+      variant: 'regular',
+    },
+    {
+      icon: '◇',
+      title: t('benefits.cards.terms.title'),
+      description: t('benefits.cards.terms.description'),
+      note: t('benefits.cards.terms.note'),
+      variant: 'regular',
+    },
+    {
+      icon: '◎',
+      title: t('benefits.cards.geography.title'),
+      description: t('benefits.cards.geography.description'),
+      note: t('benefits.cards.geography.note'),
+      variant: 'regular',
+    },
+    {
+      icon: '✧',
+      title: t('benefits.cards.recruitment.title'),
+      description: t('benefits.cards.recruitment.description'),
+      note: t('benefits.cards.recruitment.note'),
+      variant: 'wide',
+    },
+  ];
+
   return (
     <section className={styles.wrapper}>
       <div className={styles.backgroundGlow} />
@@ -61,35 +58,31 @@ export function BenefitsPage() {
       <div className={styles.content}>
         <header className={styles.heading}>
           <span className={styles.label}>
-            <span className={styles.labelDot} />
+            <span className={styles.labelDot} aria-hidden="true" />
             Global Employer of Record
           </span>
 
           <h1>
-            Почему <span>мы</span>
+            {t('benefits.heading')} <span>{t('benefits.headingAccent')}</span>
           </h1>
 
           <div className={styles.line} />
 
           <p className={styles.intro}>
-            Меньше административной работы —
+            {t('benefits.intro')}
             <br className={styles.desktopBreak} />
-            больше времени на бизнес
+            {t('benefits.introSecond')}
           </p>
 
           <p className={styles.subtitle}>
-            Международные расчёты и без того требуют внимания.
-            Помогаем структурировать процесс и избавляем вашу команду
-            от части организационной рутины.
+            {t('benefits.subtitle')}
           </p>
         </header>
 
         <div className={styles.benefitsGrid}>
           {benefits.map((benefit, index) => (
             <article
-              className={`${styles.benefitCard} ${
-                styles[benefit.variant]
-              }`}
+              className={`${styles.benefitCard} ${styles[benefit.variant]}`}
               key={benefit.title}
               style={{ '--card-index': index } as React.CSSProperties}
             >
@@ -114,7 +107,7 @@ export function BenefitsPage() {
 
         <div className={styles.bottomText}>
           <span>Global Employer of Record</span>
-          <p>Сложные процессы. Более понятная организация.</p>
+          <p>{t('benefits.bottomText')}</p>
         </div>
       </div>
     </section>

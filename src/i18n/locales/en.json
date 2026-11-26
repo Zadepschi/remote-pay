@@ -49,6 +49,47 @@
     "requestConsultation": "Request a Consultation",
     "rights": "All rights reserved.",
     "privacy": "Privacy Policy"
+  },
+
+  "benefits": {
+    "heading": "Why",
+    "headingAccent": "Choose Us",
+    "intro": "Less administrative work —",
+    "introSecond": "more time to focus on business",
+    "subtitle": "International payments already require attention. We help structure the process and reduce part of the administrative workload for your team.",
+    "bottomText": "Complex processes. Simpler coordination.",
+    "cards": {
+      "routine": {
+        "title": "Less Routine",
+        "description": "We help coordinate payment processes and document collection.",
+        "note": "More time for what really matters."
+      },
+      "contact": {
+        "title": "One Point of Contact",
+        "description": "Work with our team on organizational matters related to the agreed service.",
+        "note": "No more chasing answers across multiple conversations."
+      },
+      "documents": {
+        "title": "Clear Documentation",
+        "description": "We help organize documents and information related to international payments.",
+        "note": "We believe good documentation starts with good organization."
+      },
+      "terms": {
+        "title": "Transparent Terms",
+        "description": "We agree on fees, currency and potential expenses in advance.",
+        "note": "No surprises hidden in the fine print."
+      },
+      "geography": {
+        "title": "International Reach",
+        "description": "We explore payment options across different countries, depending on available payment solutions.",
+        "note": "Cards have borders. Business opportunities have fewer."
+      },
+      "recruitment": {
+        "title": "Additional Recruitment Support",
+        "description": "When needed, we help find specialists who match your company's requirements and budget.",
+        "note": "More than payments — support in finding the right people."
+      }
+    }
   }
 
 }
