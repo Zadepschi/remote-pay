@@ -12,7 +12,7 @@ export function Footer() {
         <div className={styles.main}>
           <div className={styles.brand}>
             <Link to="/" className={styles.logo}>
-              <img src="/logoGlobe.png" alt="Globeor" />
+              <img src="/logoGlobe.png" alt="GlobeEOR" />
             </Link>
 
             <div className={styles.brandTagline}>
@@ -24,36 +24,17 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Навигация */}
           <div className={styles.linksColumn}>
             <h3>{t('footer.navigationTitle')}</h3>
 
-            <Link to="/">
-              {t('footer.home')}
-            </Link>
-
-            <Link to="/services">
-              {t('footer.services')}
-            </Link>
-
-            <Link to="/benefits">
-              {t('footer.benefits')}
-            </Link>
-
-            <Link to="/how-it-works">
-              {t('footer.howItWorks')}
-            </Link>
-
-            <Link to="/documents">
-              {t('footer.documents')}
-            </Link>
-
-            <Link to="/contact">
-              {t('footer.contacts')}
-            </Link>
+            <Link to="/">{t('footer.home')}</Link>
+            <Link to="/services">{t('footer.services')}</Link>
+            <Link to="/benefits">{t('footer.benefits')}</Link>
+            <Link to="/how-it-works">{t('footer.howItWorks')}</Link>
+            <Link to="/documents">{t('footer.documents')}</Link>
+            <Link to="/contact">{t('footer.contacts')}</Link>
           </div>
 
-          {/* Услуги и контакты */}
           <div className={styles.linksColumn}>
             <h3>{t('footer.servicesTitle')}</h3>
 
@@ -77,13 +58,23 @@ export function Footer() {
 
         <div className={styles.bottom}>
           <p>
-            © {new Date().getFullYear()} Globeor.
+            © {new Date().getFullYear()} GlobeEOR.
             {' '}{t('footer.rights')}
           </p>
 
-          <Link to="/privacy">
-            {t('footer.privacy')}
-          </Link>
+          <div className={styles.legalLinks}>
+            <Link to="/privacy-policy">
+              {t('footer.privacy')}
+            </Link>
+
+            <Link to="/terms-of-service">
+              {t('footer.terms')}
+            </Link>
+
+            <Link to="/cookie-policy">
+              {t('footer.cookies')}
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

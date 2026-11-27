@@ -3,7 +3,7 @@ import { useForm, ValidationError } from '@formspree/react';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import PhoneInput from 'react-phone-number-input';
-import { Mail, ArrowUpRight } from 'lucide-react';
+import { Mail, ArrowUpRight, MapPin } from 'lucide-react';
 
 import 'react-phone-number-input/style.css';
 import styles from './ContactPage.module.scss';
@@ -119,21 +119,23 @@ export default function ContactPage() {
                 </span>
               </a>
 
-              <div className={styles.contactItem}>
-                <span className={styles.contactIcon}>⌖</span>
+             <div className={styles.contactItem}>
+  <span className={styles.contactIcon}>
+    <MapPin size={22} strokeWidth={1.7} />
+  </span>
 
-                <span className={styles.contactText}>
-                  <span className={styles.contactLabel}>
-                    {t('contact.panel.address')}
-                  </span>
+  <span className={styles.contactText}>
+    <span className={styles.contactLabel}>
+      {t('contact.panel.address')}
+    </span>
 
-                  <span className={styles.contactValue}>
-                    123 Example Street,
-                    <br />
-                    New York, NY 10001, USA
-                  </span>
-                </span>
-              </div>
+    <span className={styles.contactValue}>
+      123 Example Street,
+      <br />
+      New York, NY 10001, USA
+    </span>
+  </span>
+</div>
             </div>
 
             <div className={styles.contactNote}>

@@ -4,7 +4,8 @@
     "benefits": "Why Choose Us",
     "howItWorks": "How It Works",
     "documents": "Documents & Support",
-    "contacts": "Contacts"
+    "contacts": "Contacts",
+    "consultation": "Book a Consultation"
   },
 
 
@@ -48,8 +49,16 @@
     "contactTitle": "Get in Touch",
     "requestConsultation": "Request a Consultation",
     "rights": "All rights reserved.",
-    "privacy": "Privacy Policy"
+    "privacy": "Privacy Policy",
+  "terms": "Terms of Service",
+  "cookies": "Cookie Policy"
   },
+
+"legal": {
+  "eyebrow": "LEGAL INFORMATION",
+  "lastUpdated": "Last Updated"
+},
+
 
   "benefits": {
     "heading": "Why",

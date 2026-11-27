@@ -1,0 +1,349 @@
+
+.legalPage {
+  min-height: 100vh;
+  padding: 90px 24px 110px;
+  background:
+    radial-gradient(
+      ellipse at 85% 5%,
+      rgba(201, 155, 76, 0.07),
+      transparent 32%
+    ),
+    #0b1926;
+  color: #f2f0eb;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+// HERO
+
+.hero {
+  max-width: 850px;
+  margin: 0 auto 65px;
+
+  h1 {
+    margin: 22px 0 14px;
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -2px;
+    color: #f4f0e8;
+  }
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ddb15e;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+
+  span {
+    width: 28px;
+    height: 1px;
+    background: #ddb15e;
+  }
+}
+
+.updated {
+  color: #929eaa;
+  font-size: 14px;
+  margin: 0;
+}
+
+// HERO CARD
+
+.heroCard {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 40px;
+  padding: 30px 35px;
+  border: 1px solid rgba(211, 171, 97, 0.25);
+  border-radius: 14px;
+  background: linear-gradient(
+    115deg,
+    #14283a,
+    #102031
+  );
+
+  h2 {
+    margin: 10px 0;
+    font-size: 23px;
+    color: #f4f0e8;
+  }
+
+  p {
+    margin: 0;
+    color: #a9b3bd;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+}
+
+.heroCardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 76px;
+  height: 76px;
+  border: 1px solid rgba(221, 177, 94, 0.35);
+  border-radius: 14px;
+
+  background: rgba(221, 177, 94, 0.06);
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+.heroLabel {
+  color: #dcb15f;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+// CONTENT LAYOUT
+
+.contentLayout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 65px;
+  align-items: start;
+}
+
+// SIDEBAR
+
+.sidebar {
+  position: sticky;
+  top: 35px;
+}
+
+.sidebarInner {
+  padding: 25px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: #101f2e;
+}
+
+.sidebarTitle {
+  display: block;
+  margin-bottom: 20px;
+  color: #dcb15f;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  a {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 10px 8px;
+    border-radius: 6px;
+    color: #aab4bf;
+    font-size: 12px;
+    line-height: 1.5;
+    text-decoration: none;
+    transition: 0.25s ease;
+
+    span {
+      flex-shrink: 0;
+      color: #c69b50;
+      font-size: 10px;
+    }
+
+    &:hover {
+      color: #edc875;
+      background: rgba(221, 177, 94, 0.07);
+    }
+  }
+}
+
+// ARTICLE
+
+.article {
+  min-width: 0;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 20px;
+  padding: 0 0 38px;
+  margin-bottom: 38px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  scroll-margin-top: 35px;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+}
+
+.sectionNumber {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 4px;
+  color: #dcb15f;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.sectionContent {
+  h2 {
+    margin: 0 0 20px;
+    color: #f2eee6;
+    font-size: clamp(19px, 2vw, 23px);
+    font-weight: 650;
+    line-height: 1.4;
+    letter-spacing: -0.3px;
+  }
+
+  p {
+    margin: 0 0 13px;
+    color: #b5bec7;
+    font-size: 15px;
+    line-height: 1.85;
+    font-weight: 400;
+    overflow-wrap: anywhere;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// DOCUMENT END
+
+.documentEnd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 20px 0;
+
+  span {
+    width: 45px;
+    height: 1px;
+    background: rgba(221, 177, 94, 0.45);
+  }
+
+  p {
+    margin: 0;
+    color: #9ba5af;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+}
+
+// TABLET
+
+@media (max-width: 1000px) {
+  .contentLayout {
+    grid-template-columns: 210px minmax(0, 1fr);
+    gap: 35px;
+  }
+
+  .sidebarInner {
+    padding: 20px 14px;
+  }
+}
+
+// MOBILE
+
+@media (max-width: 700px) {
+  .legalPage {
+    padding: 65px 20px 75px;
+  }
+
+  .hero {
+    margin-bottom: 40px;
+
+    h1 {
+      letter-spacing: -1px;
+    }
+  }
+
+  .heroCard {
+    padding: 22px;
+    gap: 16px;
+
+    h2 {
+      font-size: 19px;
+    }
+  }
+
+ .heroCardIcon {
+  width: 58px;
+  height: 58px;
+  padding: 6px;
+}
+
+  .contentLayout {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .sidebar {
+    position: static;
+    width: 100%;
+  }
+
+  .sidebarInner {
+    padding: 20px;
+  }
+
+  .sidebar nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .section {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 12px;
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+  }
+
+  .sectionContent {
+    p {
+      font-size: 14px;
+      line-height: 1.8;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .legalPage {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .heroCard {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .sidebar nav {
+    grid-template-columns: 1fr;
+  }
+}

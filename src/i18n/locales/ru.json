@@ -4,7 +4,8 @@
     "benefits": "Почему мы",
     "howItWorks": "Как это работает",
     "documents": "Документы и сопровождение",
-    "contacts": "Контакты"
+    "contacts": "Контакты",
+  "consultation": "Записаться на консультацию"
   },
 
 
@@ -32,24 +33,31 @@
     }
   },
 
-  "footer": {
-    "tagline": "Global Employer of Record",
-    "description": "Подбор специалистов, международные выплаты и административное сопровождение для бизнеса по всему миру.",
-    "navigationTitle": "Навигация",
-    "home": "Главная",
-    "services": "Услуги",
-    "benefits": "Преимущества",
-    "howItWorks": "Как это работает",
-    "documents": "Документы",
-    "contacts": "Контакты",
-    "servicesTitle": "Наши направления",
-    "recruitment": "Подбор специалистов",
-    "internationalPayments": "Международные выплаты",
-    "contactTitle": "Связаться с нами",
-    "requestConsultation": "Запросить консультацию",
-    "rights": "Все права защищены.",
-    "privacy": "Политика конфиденциальности"
-  },
+ "footer": {
+  "tagline": "Global Employer of Record",
+  "description": "Подбор специалистов, международные выплаты и административное сопровождение для бизнеса по всему миру.",
+  "navigationTitle": "Навигация",
+  "home": "Главная",
+  "services": "Услуги",
+  "benefits": "Преимущества",
+  "howItWorks": "Как это работает",
+  "documents": "Документы",
+  "contacts": "Контакты",
+  "servicesTitle": "Наши направления",
+  "recruitment": "Подбор специалистов",
+  "internationalPayments": "Международные выплаты",
+  "contactTitle": "Связаться с нами",
+  "requestConsultation": "Запросить консультацию",
+  "rights": "Все права защищены.",
+  "privacy": "Политика конфиденциальности",
+  "terms": "Условия использования",
+  "cookies": "Политика Cookie"
+},
+
+"legal": {
+  "eyebrow": "ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ",
+  "lastUpdated": "Последнее обновление"
+},
 
   "benefits": {
     "heading": "Почему",
