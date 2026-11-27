@@ -307,8 +307,9 @@
   }
 
   .mobileMenu {
-    padding-right: 20px;
-    padding-left: 20px;
+    padding: 100px 20px 30px;
+    height: 100vh;
+    height: 100dvh;
   }
 
   .mobileNavigation > a:not(.mobileContact) {
