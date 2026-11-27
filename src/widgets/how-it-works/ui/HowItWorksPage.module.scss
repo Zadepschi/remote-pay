@@ -312,9 +312,11 @@
 
 // Планшеты
 
-@media (max-width: 900px) {
+@media (max-width: 900px) and (min-width: 601px) {
   .wrapper {
-    min-height: auto;
+    min-height: calc(100vh - 80px);
+    min-height: calc(100svh - 80px);
+    box-sizing: border-box;
     padding: 65px 22px;
   }
 
